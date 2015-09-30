@@ -113,6 +113,7 @@ describe('render', function () {
       });
 
       pages.use(function (collection) {
+        collection.option('pager', false);
         collection.renderEach = function (cb) {
           var list = new List(collection);
 

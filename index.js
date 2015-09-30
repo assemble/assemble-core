@@ -4,10 +4,10 @@
  * module dependencies
  */
 
-var only = require('emitter-only');
 var Templates = require('templates');
 var Composer = require('composer');
 var proto = Composer.prototype;
+var only = require('emitter-only');
 var utils = require('./lib/utils');
 
 /**
@@ -88,22 +88,21 @@ Templates.extend(Assemble, {
    */
 
   renderFile: function (locals) {
+    var opts = utils.merge({}, this.options, locals);
+    var collection = this.collection(opts);
+    var File = opts.File || utils.File;
     var app = this;
-    var collection = this.collection();
-    return utils.through.obj(function (file, enc, cb) {
-      if (typeof locals === 'function') {
-        cb = locals;
-        locals = {};
+
+    return utils.through.obj(function (file, enc, next) {
+      if (!file.isView) {
+        file = collection.view(file);
       }
+      app.handleView('onLoad', file);
 
-      var view = collection.view(file);
-      app.handleView('onLoad', view);
-
-      var ctx = utils.merge({}, app.cache.data, locals, view.data);
-      app.render(view, ctx, function (err, res) {
-        if (err) return cb(err);
-        file = new utils.Vinyl(res);
-        cb(null, file);
+      var ctx = utils.merge({}, app.cache.data, locals, file.data);
+      app.render(file, ctx, function (err, res) {
+        if (err) return next(err);
+        next(null, new File(res));
       });
     });
   },
