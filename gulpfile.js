@@ -27,15 +27,14 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('lazy', function () {
+gulp.task('unlazy', function () {
   return gulp.src('lib/utils.js')
     .pipe(through.obj(function (file, enc, cb) {
-      var str = file.contents.toString();
-      file.contents = new Buffer(unlazy(str));
+      file.contents = new Buffer(unlazy(file.contents.toString()));
       cb(null, file);
     }))
     .pipe(gulp.dest(function (file) {
-      file.path = 'foo/index.js'
+      file.path = 'lib/utils-browser.js'
       return file;
     }))
 });
