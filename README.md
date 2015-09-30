@@ -90,9 +90,9 @@ app.task('default', ['html', 'css']);
 
 ## API
 
-### [App](index.js#L25)
+### [Assemble](index.js#L25)
 
-Initialize a new `App`. This is the main function exported by the `app-base` module.
+Create an `assemble` application. This is the main function exported by the assemble module.
 
 **Params**
 
@@ -101,55 +101,45 @@ Initialize a new `App`. This is the main function exported by the `app-base` mod
 **Example**
 
 ```js
-var App = require('app');
-var app = new App();
+var assemble = require('assemble');
+var app = assemble();
 ```
 
-### [.src](index.js#L62)
+### [.toStream](index.js#L58)
 
-Glob patterns or filepaths to source files.
+Push a view collection into a vinyl stream.
 
 **Params**
 
-* `glob` **{String|Array}**: Glob patterns or file paths to source files.
-* `options` **{Object}**: Options or locals to merge into the context and/or pass to `src` plugins
+* `collection` **{String}**: Name of the collection to push into the stream.
+* **{Function}**: Optionally pass a filter function to use for filtering views.
+* `returns` **{Stream}**
 
 **Example**
 
 ```js
-app.src('src/*.hbs', {layout: 'default'});
+app.toStream('posts', function(file) {
+  return file.path !== 'index.hbs';
+})
 ```
 
-### [.symlink](index.js#L77)
+### [.renderFile](index.js#L92)
 
-Glob patterns or paths for symlinks.
+Render a vinyl file.
 
 **Params**
 
-* `glob` **{String|Array}**
+* `locals` **{Object}**: Optionally locals to pass to the template engine for rendering.
+* `returns` **{Object}**
 
 **Example**
 
 ```js
-app.symlink('src/**');
+app.src('*.hbs')
+  .pipe(app.renderFile());
 ```
 
-### [.dest](index.js#L93)
-
-Specify a destination for processed files.
-
-**Params**
-
-* `dest` **{String|Function}**: File path or rename function.
-* `options` **{Object}**: Options and locals to pass to `dest` plugins
-
-**Example**
-
-```js
-app.dest('dist/');
-```
-
-### [.copy](index.js#L115)
+### [.copy](index.js#L127)
 
 Copy files with the given glob `patterns` to the specified `dest`.
 
@@ -167,41 +157,51 @@ app.task('assets', function() {
 });
 ```
 
-### [.toStream](index.js#L135)
+### [.src](index.js#L155)
 
-Push a view collection into a vinyl stream.
+Glob patterns or filepaths to source files.
 
 **Params**
 
-* `collection` **{String}**: The name of the view collection to push into the stream.
-* **{Function}**: Optionally pass a filter function to use for filtering views.
-* `returns` **{Stream}**
+* `glob` **{String|Array}**: Glob patterns or file paths to source files.
+* `options` **{Object}**: Options or locals to merge into the context and/or pass to `src` plugins
 
 **Example**
 
 ```js
-app.toStream('posts', function(file) {
-  return file.path !== 'index.hbs';
-})
+app.src('src/*.hbs', {layout: 'default'});
 ```
 
-### [.renderFile](index.js#L160)
+### [.symlink](index.js#L170)
 
-Render a vinyl file.
+Glob patterns or paths for symlinks.
 
 **Params**
 
-* `locals` **{Object}**: Optionally locals to pass to the template engine for rendering.
-* `returns` **{Object}**
+* `glob` **{String|Array}**
 
 **Example**
 
 ```js
-app.src('*.hbs')
-  .pipe(app.renderFile());
+app.symlink('src/**');
 ```
 
-### [.task](index.js#L196)
+### [.dest](index.js#L186)
+
+Specify a destination for processed files.
+
+**Params**
+
+* `dest` **{String|Function}**: File path or rename function.
+* `options` **{Object}**: Options and locals to pass to `dest` plugins
+
+**Example**
+
+```js
+app.dest('dist/');
+```
+
+### [.task](index.js#L208)
 
 Define a task to be run when the task is called.
 
@@ -219,7 +219,7 @@ app.task('default', function() {
 });
 ```
 
-### [.run](index.js#L217)
+### [.run](index.js#L229)
 
 Run one or more tasks.
 
