@@ -11,14 +11,23 @@ describe('app', function () {
     app = assemble({runtimes: false});
   });
 
-  it('should run a task when a file changes', function (done) {
-    app.task('watch-test', function () {
-      done();
+  it('should run a task when a file changes', function (cb) {
+    var watch;
+    app.task('watch', function () {
+      watch = app.watch('test/fixtures/watch/*.txt', ['watch-test']);
+
+      setImmediate(function () {
+        fs.writeFileSync('test/fixtures/watch/test.txt', 'test');
+      });
     });
 
-    app.watch('test/fixtures/watch/*.txt', ['watch-test']);
-    setImmediate(function () {
-      fs.writeFileSync('test/fixtures/watch/test.txt', new Date());
+    app.task('watch-test', function () {
+      watch.close();
+      cb();
+    });
+
+    app.run('watch', function (err) {
+      if (err) return cb(err);
     });
   });
 });

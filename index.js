@@ -119,7 +119,8 @@ Templates.extend(Assemble, {
 
   copy: function(patterns, dest, options) {
     return utils.vfs.src(patterns, options)
-      .pipe(utils.vfs.dest(dest, options));
+      .pipe(utils.vfs.dest(dest, options))
+      .on('data', function() {})
   },
 
   /**

@@ -40,14 +40,7 @@ gulp.task('lazy', function () {
     }))
 });
 
-gulp.task('default', ['lint', 'test'], function (cb) {
-  console.log('Finished "default"');
-
-  // force the process to end since `assemble.watch`
-  // holds it open in the tests
-  process.exit();
-  cb();
-});
+gulp.task('default', ['lint', 'test']);
 
 
 function unlazy(str) {
