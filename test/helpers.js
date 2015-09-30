@@ -1,22 +1,12 @@
 require('mocha');
 require('should');
-var fs = require('fs');
 var path = require('path');
-var Base = require('base-methods');
 var assert = require('assert');
-var forOwn = require('for-own');
 var consolidate = require('consolidate');
 var handlebars = require('engine-handlebars');
 var matter = require('parser-front-matter');
-var rimraf = require('rimraf');
 var swig = consolidate.swig;
 require('swig');
-
-function load(fp) {
-  fp = path.join(__dirname, 'fixtures', fp);
-  var str = fs.readFileSync(fp, 'utf8');
-  return str;
-}
 
 var App = require('..');
 var app;
@@ -561,11 +551,11 @@ describe('collection helpers', function () {
 
       var one = app.page('one', {content: '{{view "a.hbs"}}'})
         .compile()
-        .fn()
+        .fn();
 
       var two = app.page('two', {content: '{{view "b.hbs"}}'})
         .compile()
-        .fn()
+        .fn();
 
       assert(one === 'post-a');
       assert(two === 'post-b');
@@ -582,11 +572,11 @@ describe('collection helpers', function () {
 
       var one = app.page('one', {content: '{{view "a.hbs" "posts"}}'})
         .compile()
-        .fn()
+        .fn();
 
       var two = app.page('two', {content: '{{view "b.hbs" "pages"}}'})
         .compile()
-        .fn()
+        .fn();
 
       assert(one === 'post-a');
       assert(two === 'page-b');

@@ -27,7 +27,7 @@ describe('app input stream', function() {
         should.exist(file.path);
         should.exist(file.contents);
         join(file.path, '').should.equal(join(__dirname, './fixtures/test.coffee'));
-        String(file.contents).should.equal('this is a test');
+        String(file.contents).should.equal('Hello world!');
       });
       stream.on('end', function () {
         done();
@@ -104,7 +104,7 @@ describe('app input stream', function() {
           buf += d;
         });
         file.contents.on('end', function () {
-          buf.should.equal('this is a test');
+          buf.should.equal('Hello world!');
           done();
         });
         join(file.path, '').should.equal(join(__dirname, './fixtures/test.coffee'));
@@ -149,7 +149,7 @@ describe('app input stream', function() {
         should.exist(file.path);
         should.exist(file.contents);
         join(file.path, '').should.equal(join(__dirname, './fixtures/test.coffee'));
-        String(file.contents).should.equal('this is a test');
+        String(file.contents).should.equal('Hello world!');
       });
       stream.on('end', function () {
         a.should.equal(1);
@@ -172,7 +172,7 @@ describe('app input stream', function() {
         should.exist(file.path);
         should.exist(file.contents);
         join(file.path, '').should.equal(join(__dirname, './fixtures/test.coffee'));
-        String(file.contents).should.equal('this is a test');
+        String(file.contents).should.equal('Hello world!');
       });
       stream.on('end', function () {
         done();
@@ -285,7 +285,7 @@ describe('app input stream', function() {
         should.exist(file.path);
         should.exist(file.contents);
         join(file.path, '').should.equal(join(__dirname, './fixtures/test.coffee'));
-        String(file.contents).should.equal('this is a test');
+        String(file.contents).should.equal('Hello world!');
       });
       stream.on('end', function () {
         a.should.equal(1);

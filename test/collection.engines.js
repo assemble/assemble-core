@@ -93,7 +93,7 @@ describe('engines', function () {
 });
 
 
-describe('engine selection:', function (done) {
+describe('engine selection:', function () {
   beforeEach(function () {
     collection = new Views();
     collection.engine('tmpl', require('engine-base'));

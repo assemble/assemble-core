@@ -1,10 +1,10 @@
 var assert = require('assert');
-var App = require('../');
+var assemble = require('../');
 var app;
 
 describe('app', function () {
   beforeEach(function () {
-    app = new App();
+    app = new assemble();
   });
 
   it('should register a task', function () {
@@ -126,6 +126,30 @@ describe('app', function () {
   });
 
   it('should run dependencies before running the dependent task.', function (done) {
+    var seq = [];
+    app.task('foo', function (cb) {
+      seq.push('foo');
+      cb();
+    });
+    app.task('bar', function (cb) {
+      seq.push('bar');
+      cb();
+    });
+    app.task('default', ['foo', 'bar'], function (cb) {
+      seq.push('default');
+      cb();
+    });
+
+    app.run('default', function (err) {
+      if (err) return done(err);
+      assert.deepEqual(seq, ['foo', 'bar', 'default']);
+      done();
+    });
+  });
+
+  it('should support the `runtimes` option:', function (done) {
+    app = assemble({runtimes: true});
+
     var seq = [];
     app.task('foo', function (cb) {
       seq.push('foo');

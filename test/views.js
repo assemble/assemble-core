@@ -4,7 +4,6 @@ var path = require('path');
 var assert = require('assert');
 var typeOf = require('kind-of');
 var isBuffer = require('is-buffer');
-var support = require('./support');
 var App = require('..');
 var List = App.List;
 var View = App.View;
@@ -49,7 +48,8 @@ describe('views', function () {
       'emit',
       'listeners',
       'hasListeners' 
-    ].forEach(function (method) {
+    ];
+    methods.forEach(function (method) {
       it('should expose ' + method + ' method', function () {
         assert(typeof collection[method] === 'function');
       });

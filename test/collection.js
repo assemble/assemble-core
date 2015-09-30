@@ -4,7 +4,6 @@ var path = require('path');
 var assert = require('assert');
 var typeOf = require('kind-of');
 var isBuffer = require('is-buffer');
-var support = require('./support');
 
 var App = require('..');
 var List = App.List;
@@ -51,7 +50,9 @@ describe('collection', function () {
       'emit',
       'listeners',
       'hasListeners' 
-    ].forEach(function (method) {
+    ];
+
+    methods.forEach(function (method) {
       it('should expose ' + method + ' method', function () {
         assert(typeof collection[method] === 'function');
       });
@@ -107,10 +108,10 @@ describe('methods', function () {
 
     it('should expose `item` when the plugin returns a function', function () {
       collection
-        .use(function (inst) {
+        .use(function () {
           return function (item) {
             item.foo = 'bar';
-          }
+          };
         });
 
       collection.addItem('aaa');
@@ -452,7 +453,7 @@ describe('options', function() {
     });
 
     it('should expose the `option` method', function () {
-      collection.option('foo', 'bar')
+      collection.option('foo', 'bar');
       collection.options.should.have.property('foo', 'bar');
     });
 

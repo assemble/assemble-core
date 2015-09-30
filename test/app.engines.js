@@ -92,7 +92,7 @@ describe('engines', function () {
 });
 
 
-describe('engine selection:', function (done) {
+describe('engine selection:', function () {
   beforeEach(function () {
     app = new App();
     app.engine('tmpl', require('engine-base'));

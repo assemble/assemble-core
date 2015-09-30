@@ -1,8 +1,6 @@
 require('mocha');
 var path = require('path');
 var assert = require('assert');
-var fs = require('graceful-fs');
-var should = require('should');
 var rimraf = require('rimraf');
 var App = require('..');
 var app;

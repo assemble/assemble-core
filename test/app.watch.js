@@ -1,9 +1,7 @@
 'use strict';
 
 var fs = require('fs');
-var path = require('path');
 var assemble = require('../');
-var fixture = path.join(__dirname, 'fixtures/watch');
 var app;
 
 describe('app', function () {
@@ -15,7 +13,6 @@ describe('app', function () {
     var watch;
     app.task('watch', function () {
       watch = app.watch('test/fixtures/watch/*.txt', ['watch-test']);
-
       setImmediate(function () {
         fs.writeFileSync('test/fixtures/watch/test.txt', 'test');
       });

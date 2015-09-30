@@ -31,7 +31,7 @@ describe('collection', function () {
     beforeEach(function () {
       app = new App()
         .use(function () {
-          return function (collection) {
+          return function () {
             define(this, 'count', {
               get: function() {
                 return Object.keys(this.views).length;
