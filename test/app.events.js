@@ -38,7 +38,6 @@ describe('events', function () {
 
   it('should listen for `view` events:', function () {
     var app = new App();
-    app.initialize();
 
     app.on('view', function (view) {
       view.foo = 'bar';
@@ -46,5 +45,16 @@ describe('events', function () {
 
     var view = app.view({path: 'a', content: 'b'});
     assert(view.foo === 'bar');
+  });
+
+  it('should only register a listener once:', function () {
+    var app = new App();
+
+    app.only('foo', 'bar', function () {});
+    app.only('foo', 'bar', function () {});
+    app.only('foo', 'bar', function () {});
+    app.only('foo', 'bar', function () {});
+
+    assert.equal(app._callbacks['$bar'].length, 1);
   });
 });

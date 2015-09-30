@@ -49,22 +49,28 @@ Templates.extend(Assemble, {
    * })
    * ```
    * @name .toStream
-   * @param {String} `collection` The name of the view collection to push into the stream.
+   * @param {String} `collection` Name of the collection to push into the stream.
    * @param {Function} Optionally pass a filter function to use for filtering views.
    * @return {Stream}
    * @api public
    */
 
-  toStream: function (name) {
-    var views = this.getViews(name) || {};
+  toStream: function (collection) {
     var stream = utils.through.obj();
+    var src = utils.srcStream;
+
+    if (typeof collection === 'undefined') {
+      return src(stream);
+    }
+
+    var views = this.getViews(collection);
     setImmediate(function () {
       Object.keys(views).forEach(function (key) {
         stream.write(views[key]);
       });
       stream.end();
     });
-    return utils.srcStream(stream);
+    return src(stream);
   },
 
   /**
