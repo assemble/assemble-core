@@ -58,16 +58,18 @@ Templates.extend(Assemble, {
   toStream: function (collection) {
     var stream = utils.through.obj();
     var src = utils.srcStream;
+    stream.setMaxListeners(0);
 
     if (typeof collection === 'undefined') {
+      process.nextTick(stream.end.bind(stream));
       return src(stream);
     }
 
     var views = this.getViews(collection);
     setImmediate(function () {
-      Object.keys(views).forEach(function (key) {
+      for (var key in views) {
         stream.write(views[key]);
-      });
+      }
       stream.end();
     });
     return src(stream);
