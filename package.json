@@ -23,7 +23,7 @@
     "assemble-fs": "^0.1.1",
     "assemble-render-file": "^0.1.1",
     "assemble-streams": "^0.1.1",
-    "composer": "^0.5.1",
+    "composer": "^0.5.2",
     "emitter-only": "^0.1.0",
     "templates": "^0.3.5"
   },
