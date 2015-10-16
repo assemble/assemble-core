@@ -1,7 +1,9 @@
+/* deps: coveralls istanbul */
 require('mocha');
 require('should');
 var assert = require('assert');
-var App = require('../');
+var support = require('./support');
+var App = support.resolve();
 var Base = App.Base;
 var app;
 
@@ -9,6 +11,11 @@ describe('app', function () {
   describe('constructor', function () {
     it('should create an instance of App:', function () {
       app = new App();
+      assert(app instanceof App);
+    });
+
+    it('should new up without new:', function () {
+      app = App();
       assert(app instanceof App);
     });
   });
@@ -77,6 +84,12 @@ describe('app', function () {
       assert(typeof app.foo ==='function');
     });
 
+    it('should expose constructors from `lib`:', function () {
+      app = new App();
+      app.expose('Collection');
+      assert(typeof app.Collection ==='function');
+    });
+
     it('should update constructors after init:', function () {
       var Group = App.Group;
       function MyGroup() {
@@ -100,6 +113,18 @@ describe('app', function () {
       });
       assert(typeof app.foo ==='function');
       delete App.prototype.foo;
+    });
+
+    it('should expose `_` on app:', function () {
+      app = new App();
+      assert(typeof app._ ==='object');
+    });
+
+    it('should not re-add `_` in init:', function () {
+      app = new App();
+      app._.foo = 'bar';
+      app.defaultConfig();
+      assert(app._.foo ==='bar');
     });
   });
 });

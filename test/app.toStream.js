@@ -3,7 +3,6 @@
 var assemble = require('..');
 var assert = require('assert');
 var should = require('should');
-var join = require('path').join;
 var app;
 
 describe('toStream()', function() {

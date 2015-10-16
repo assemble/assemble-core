@@ -1,30 +1,42 @@
 'use strict';
 
+var assert = require('assert');
 var fs = require('fs');
-var assemble = require('../');
+var App = require('..');
 var app;
 
-describe('app', function () {
+describe.skip('watch()', function () {
   beforeEach(function () {
-    app = assemble({runtimes: false});
+    app = new App({runtimes: false});
   });
 
-  it('should run a task when a file changes', function (cb) {
-    var watch;
-    app.task('watch', function () {
-      watch = app.watch('test/fixtures/watch/*.txt', ['watch-test']);
-      setImmediate(function () {
-        fs.writeFileSync('test/fixtures/watch/test.txt', 'test');
-      });
-    });
+  it('should watch files and run a task when files change', function (done) {
+    this.timeout(750);
 
-    app.task('watch-test', function () {
-      watch.close();
+    var count = 0, watch;
+    app.task('default', function (cb) {
+      count++;
       cb();
     });
 
-    app.run('watch', function (err) {
-      if (err) return cb(err);
+    app.task('close', function (cb) {
+      watch.close();
+      app.emit('close');
+      cb();
+    });
+
+    app.task('watch', function (cb) {
+      watch = app.watch('test/fixtures/watch/*.txt', ['default', 'close']);
+      fs.writeFile('test/fixtures/watch/test.txt', 'test', function (err) {
+        if (err) return cb(err);
+        app.on('close', cb);
+      });
+    });
+
+    app.build(['watch'], function (err) {
+      if (err) return done(err);
+      assert.equal(count, 1);
+      done();
     });
   });
 });

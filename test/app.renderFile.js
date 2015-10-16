@@ -119,9 +119,8 @@ describe('app.renderFile()', function() {
   });
 
   it('should handle engine errors', function (cb) {
-    var files = [];
     app.create('notdefined', {engine: '*'});
-    app.notdefined('foo', {content: '<%= bar %>'})
+    app.notdefined('foo', {content: '<%= bar %>'});
     app.toStream('notdefined')
       .pipe(app.renderFile())
       .on('error', function (err) {

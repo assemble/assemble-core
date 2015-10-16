@@ -1,7 +1,8 @@
 require('mocha');
 require('should');
 var assert = require('assert');
-var App = require('../');
+var support = require('./support');
+var App = support.resolve();
 var app;
 
 describe('events', function () {
@@ -45,16 +46,5 @@ describe('events', function () {
 
     var view = app.view({path: 'a', content: 'b'});
     assert(view.foo === 'bar');
-  });
-
-  it('should only register a listener once:', function () {
-    var app = new App();
-
-    app.only('foo', 'bar', function () {});
-    app.only('foo', 'bar', function () {});
-    app.only('foo', 'bar', function () {});
-    app.only('foo', 'bar', function () {});
-
-    assert.equal(app._callbacks['$bar'].length, 1);
   });
 });

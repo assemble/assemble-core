@@ -1,3 +1,5 @@
+'use strict';
+
 require('mocha');
 require('should');
 var async = require('async');
@@ -5,19 +7,20 @@ var assert = require('assert');
 var support = require('./support');
 var App = support.resolve();
 var List = App.List;
-var Views = App.Views;
-var pages;
+var pages, app;
 
 describe('render', function () {
   describe('rendering', function () {
     beforeEach(function () {
-      pages = new Views();
+      app = App();
+      pages = app.create('pages');
+      app.engine('tmpl', require('engine-base'));
       pages.engine('tmpl', require('engine-base'));
     });
 
     it('should throw an error when no callback is given:', function () {
       (function() {
-        pages.render({});
+        app.pages.render({});
       }).should.throw('Views#render is async and expects a callback function');
     });
 
@@ -25,26 +28,43 @@ describe('render', function () {
       pages.addView('foo.bar', {content: '<%= name %>'});
       var page = pages.getView('foo.bar');
 
-      pages.render(page, function(err) {
+      app.pages.render(page, function(err) {
         assert(err.message === 'Views#render cannot find an engine for: .bar');
         done();
       });
     });
 
-    it('should use helpers to render a view:', function (done) {
+    it('should use helpers defined on app to render a view:', function (done) {
       var locals = {name: 'Halle'};
-
-      pages.helper('upper', function (str) {
-        return str.toUpperCase(str);
+      app.helper('upper', function (str) {
+        return str.toUpperCase(str) + 'app';
       });
 
       pages.addView('a.tmpl', {content: 'a <%= upper(name) %> b', locals: locals});
       var page = pages.getView('a.tmpl');
 
+      app.render(page, function (err, res) {
+        if (err) return done(err);
+
+        assert(res.content === 'a HALLEapp b');
+        done();
+      });
+    });
+
+    it('should use helpers defined on app to render a view with collection.render:', function (done) {
+      var locals = {name: 'Halle'};
+      app.helper('upper', function (str) {
+        return str.toUpperCase(str) + 'app';
+      });
+
+      pages.addView('a.tmpl', {content: 'a <%= upper(name) %> b', locals: locals});
+      pages.helper('upper', app._.helpers.sync.upper);
+      var page = pages.getView('a.tmpl');
+
       pages.render(page, function (err, res) {
         if (err) return done(err);
 
-        assert(res.content === 'a HALLE b');
+        assert(res.content === 'a HALLEapp b');
         done();
       });
     });
@@ -116,10 +136,9 @@ describe('render', function () {
 
       pages.use(function (collection) {
         collection.option('pager', false);
-
+        
         collection.renderEach = function (cb) {
           var list = new List(collection);
-
           async.map(list.items, function (item, next) {
             collection.render(item, next);
           }, cb);

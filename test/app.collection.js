@@ -3,7 +3,9 @@ require('should');
 var fs = require('fs');
 var assert = require('assert');
 var define = require('define-property');
-var App = require('../');
+var support = require('./support');
+var App = support.resolve();
+var Collection = App.Collection;
 var app;
 
 describe('collection', function () {
@@ -86,6 +88,35 @@ describe('collection', function () {
         .pages('test/fixtures/pages/c.hbs');
 
       assert(app.pages.count === 3);
+    });
+  });
+
+  describe('addItem', function () {
+    beforeEach(function () {
+      app = new App();
+    });
+
+    it('should add items to a collection', function () {
+      var pages = app.collection({Collection: Collection});
+      pages.addItem('foo');
+      pages.addItem('bar');
+      pages.addItem('baz');
+
+      pages.items.hasOwnProperty('foo');
+      pages.items.hasOwnProperty('bar');
+      pages.items.hasOwnProperty('baz');
+    });
+
+    it('should create a collection from an existing collection:', function () {
+      var pages = app.collection({Collection: Collection});
+      pages.addItem('foo');
+      pages.addItem('bar');
+      pages.addItem('baz');
+
+      var posts = app.collection(pages);
+      posts.items.hasOwnProperty('foo');
+      posts.items.hasOwnProperty('bar');
+      posts.items.hasOwnProperty('baz');
     });
   });
 

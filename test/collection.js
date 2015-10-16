@@ -5,7 +5,8 @@ var assert = require('assert');
 var typeOf = require('kind-of');
 var isBuffer = require('is-buffer');
 
-var App = require('..');
+var support = require('./support');
+var App = support.resolve();
 var List = App.List;
 var Item = App.Item;
 var Collection = App.Collection;
@@ -15,6 +16,12 @@ describe('collection', function () {
   describe('constructor', function () {
     it('should create an instance of Collection', function () {
       var collection = new Collection();
+      assert(collection instanceof Collection);
+      assert(typeof collection === 'object');
+    });
+
+    it('should instantiate without new', function () {
+      var collection = Collection();
       assert(collection instanceof Collection);
       assert(typeof collection === 'object');
     });
@@ -31,7 +38,7 @@ describe('collection', function () {
       collection = new Collection();
     });
 
-    var methods = [ 
+    var methods = [
       'use',
       'setItem',
       'addItem',
@@ -49,7 +56,7 @@ describe('collection', function () {
       'off',
       'emit',
       'listeners',
-      'hasListeners' 
+      'hasListeners'
     ];
 
     methods.forEach(function (method) {
@@ -75,7 +82,7 @@ describe('collection', function () {
     });
   });
 });
-  
+
 describe('methods', function () {
   beforeEach(function() {
     collection = new Collection();
@@ -220,7 +227,7 @@ describe('methods', function () {
       assert(collection.items.one.abc === 'xyz');
     });
   });
-  
+
   describe('addItems', function () {
     it('should add multiple items', function () {
       collection.addItems({
@@ -312,6 +319,16 @@ describe('methods', function () {
       });
 
       collection.addList(['a.txt', 'b.txt', 'c.txt']);
+      assert(collection.items.hasOwnProperty('a.txt'));
+      assert(collection.items['a.txt'].path === 'a.txt');
+    });
+
+    it('should load an array of items from the addList callback:', function () {
+      var collection = new Collection();
+
+      collection.addList(['a.txt', 'b.txt', 'c.txt'], function (fp) {
+        return {path: fp};
+      });
       assert(collection.items.hasOwnProperty('a.txt'));
       assert(collection.items['a.txt'].path === 'a.txt');
     });
@@ -408,12 +425,12 @@ describe('queue', function () {
   });
 
   it('should emit arguments on addItem', function (done) {
-    collection.on('addItem', function (a, b, c, d, e) {
-      assert(a === 'a');
-      assert(b === 'b');
-      assert(c === 'c');
-      assert(d === 'd');
-      assert(e === 'e');
+    collection.on('addItem', function (args) {
+      assert(args[0] === 'a');
+      assert(args[1] === 'b');
+      assert(args[2] === 'c');
+      assert(args[3] === 'd');
+      assert(args[4] === 'e');
       done();
     });
 
@@ -429,8 +446,12 @@ describe('queue', function () {
   });
 
   it('should load all items on the queue when addItem is called', function () {
-    collection.on('addItem', function (key, value) {
-      collection.queue.push(collection.item(key, {content: value}));
+    collection.on('addItem', function (args) {
+      var len = args.length;
+      var last = args[len - 1];
+      if (typeof last === 'string') {
+        args[len - 1] = { content: last };
+      }
     });
 
     collection.addItem('a.html', 'aaa');

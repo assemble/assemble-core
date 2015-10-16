@@ -6,27 +6,25 @@ var App = require('..');
 var app;
 
 var fixtures = path.join(__dirname, 'fixtures/copy/*.txt');
-var outpath = path.join(__dirname, 'out-fixtures');
+var actual = path.join(__dirname, 'actual');
 
 describe('copy()', function() {
-  describe('dest()', function() {
-    beforeEach(function (done) {
-      rimraf(outpath, done);
-      app = new App();
-    });
+  beforeEach(function (done) {
+    rimraf(actual, done);
+    app = new App();
+  });
 
-    afterEach(function (done) {
-      rimraf(outpath, done);
-    });
+  afterEach(function (done) {
+    rimraf(actual, done);
+  });
 
-    describe('streams', function () {
-      it('should copy files', function (done) {
-        app.copy(fixtures, path.join(__dirname, 'actual'))
-          .on('data', function (file) {
-            assert.equal(typeof file, 'object');
-          })
-          .on('end', done);
-      });
+  describe('streams', function () {
+    it('should copy files', function (done) {
+      app.copy(fixtures, path.join(__dirname, 'actual'))
+        .on('data', function (file) {
+          assert.equal(typeof file, 'object');
+        })
+        .on('end', done);
     });
   });
 });

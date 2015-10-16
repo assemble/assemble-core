@@ -1,7 +1,8 @@
 require('mocha');
 require('should');
 var assert = require('assert');
-var App = require('../');
+var support = require('./support');
+var App = support.resolve();
 var app;
 
 describe('engine support', function() {
@@ -36,6 +37,11 @@ describe('engine support', function() {
     assert(typeof hbs === 'object');
     assert(hbs.hasOwnProperty('render'));
     assert(hbs.hasOwnProperty('compile'));
+  });
+
+  it('should return undefined if no engine is found:', function () {
+    var hbs = app.getEngine();
+    assert.equal(typeof hbs, 'undefined');
   });
 
   it('should register multiple engines to the given extension', function () {
@@ -93,11 +99,12 @@ describe('engines', function () {
 
 
 describe('engine selection:', function () {
-  beforeEach(function () {
+  beforeEach(function (done) {
     app = new App();
     app.engine('tmpl', require('engine-base'));
     app.engine('hbs', require('engine-handlebars'));
     app.create('pages');
+    done();
   });
 
   it('should get the engine from file extension:', function (done) {
