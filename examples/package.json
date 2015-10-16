@@ -1,6 +1,7 @@
 {
   "name": "smithy",
   "dependencies": {
+    "parser-front-matter": "^1.2.5",
     "to-file": "^0.1.3"
   }
 }
