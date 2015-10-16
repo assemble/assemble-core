@@ -209,8 +209,6 @@ app.task('watch', function() {
 
 ## About
 
-**What does it do?**
-
 **What can I do with it?**
 
 You can use assemble-core to create your own custom:
