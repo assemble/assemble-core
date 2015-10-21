@@ -1,4 +1,3 @@
-'use strict';
 
 var smithy = require('../smithy');
 var path = require('path');
