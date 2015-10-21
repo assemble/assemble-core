@@ -3,20 +3,31 @@
 var fs = require('fs');
 var path = require('path');
 var toFile = require('to-file');
+var matter = require('parser-front-matter');
 var assemble = require('..');
 
-module.exports = function smithy(dir) {
+module.exports = function smithy(dir, filepath) {
   var app = assemble();
 
-  app.create('files');
-  toViews(dir, function (fp, opts) {
+  app.engine('*', require('engine-handlebars'));
+  app.onLoad(/./, function (view, next) {
+    matter.parse(view, next);
+  });
+
+  app.create('files', {engine: '*'});
+  toViews(dir, filepath, function (fp, opts) {
     app.files.addView(toFile(fp, opts));
   });
 
   app.use(function(app) {
-    app.build = function(cb) {
+    app.build = function(dir, cb) {
+      if (typeof dir === 'function') {
+        cb = dir;
+        dir = 'build';
+      }
       app.toStream('files')
-        .pipe(app.dest('build'))
+        .pipe(app.renderFile())
+        .pipe(app.dest(dir))
         .on('error', cb)
         .on('end', cb);
     };
@@ -26,8 +37,8 @@ module.exports = function smithy(dir) {
   return app;
 };
 
-function toViews(dir, fn) {
-  var base = path.resolve(dir, 'src');
+function toViews(dir, filepath, fn) {
+  var base = path.resolve(dir, filepath || 'src');
   var files = fs.readdirSync(base);
 
   var len = files.length, i = -1;
