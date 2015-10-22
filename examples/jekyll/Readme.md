@@ -4,5 +4,5 @@ This example uses assemble to emulate a Jekyll static site. To test it out yours
 
 ```bash
 npm install
-node build
+node assemblefile
 ```
