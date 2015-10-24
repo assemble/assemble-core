@@ -1,12 +1,17 @@
 'use strict';
 
 var gulp = require('gulp');
+var minimist = require('minimist');
 var stylish = require('jshint-stylish');
 var istanbul = require('gulp-istanbul');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
 var git = require('gulp-git');
 var del = require('rimraf');
+
+var argv = minimist(process.argv.slice(2), {
+  alias: {d: 'del'}
+});
 
 var lint = ['index.js', 'lib/*.js'];
 
@@ -51,6 +56,10 @@ gulp.task('clone', function(cb) {
       args: 'test/_spec'
     }, cb);
   });
+});
+
+gulp.task('del', function(cb) {
+  del(argv.d || 'test/_spec', cb);
 });
 
 gulp.task('default', ['test', 'spec', 'lint']);
