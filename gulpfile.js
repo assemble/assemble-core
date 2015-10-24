@@ -42,7 +42,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('spec', ['clone'], function (cb) {
-  gulp.src('test/_spec/test/*.js')
+  gulp.src(['test/_spec/test/*.js'])
     .pipe(mocha({reporter: 'spec'}))
     .on('end', function () {
       del('test/_spec', cb);
