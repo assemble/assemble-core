@@ -25,9 +25,7 @@ function Assemble(options) {
     return new Assemble(options);
   }
   Templates.call(this, options);
-  var name = this.options.name;
-  if (name) name = 'assemble';
-  Composer.call(this, name);
+  Composer.call(this, this.options.name || 'assemble');
   this.init();
 }
 
@@ -67,6 +65,8 @@ Templates.extend(Assemble, {
  */
 
 Templates.inherit(Assemble, Composer);
+Assemble.utils = Templates.utils;
+Assemble._ = Templates._;
 
 /**
  * Expose the `Assemble` constructor
