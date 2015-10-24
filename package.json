@@ -25,7 +25,7 @@
     "assemble-streams": "^0.2.0",
     "composer": "^0.6.0",
     "emitter-only": "^0.1.0",
-    "templates": "^0.4.0"
+    "templates": "^0.4.2"
   },
   "devDependencies": {
     "assemble-ask": "^0.1.4",
