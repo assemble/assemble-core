@@ -25,7 +25,9 @@ function Assemble(options) {
     return new Assemble(options);
   }
   Templates.call(this, options);
-  Composer.call(this);
+  var name = this.options.name;
+  if (name) name = 'assemble';
+  Composer.call(this, name);
   this.init();
 }
 
