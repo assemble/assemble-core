@@ -4,6 +4,14 @@
   "version": "0.1.6",
   "homepage": "https://github.com/assemble/assemble-core",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "authors": [
+    "Jon Schlinkert (https://github.com/jonschlinkert)",
+    "Brian Woodward (https://github.com/doowb)"
+  ],
+  "maintainers": [
+    "Jon Schlinkert (https://github.com/jonschlinkert)",
+    "Brian Woodward (https://github.com/doowb)"
+  ],
   "repository": "assemble/assemble-core",
   "bugs": {
     "url": "https://github.com/assemble/assemble-core/issues"
@@ -109,14 +117,6 @@
     "website",
     "yaml",
     "yeoman"
-  ],
-  "authors": [
-    "Jon Schlinkert (https://github.com/jonschlinkert)",
-    "Brian Woodward (https://github.com/doowb)"
-  ],
-  "maintainers": [
-    "Jon Schlinkert (https://github.com/jonschlinkert)",
-    "Brian Woodward (https://github.com/doowb)"
   ],
   "verb": {
     "related": {
