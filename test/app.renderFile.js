@@ -57,9 +57,9 @@ describe('app.renderFile()', function() {
         files.push(file);
       })
       .on('end', function () {
-        assert(/<h1>a<\/h1>/.test(files[0].contents.toString()));
-        assert(/<h1>b<\/h1>/.test(files[1].contents.toString()));
-        assert(/<h1>c<\/h1>/.test(files[2].contents.toString()));
+        assert(/<h1>a<\/h1>/.test(files[0].content));
+        assert(/<h1>b<\/h1>/.test(files[1].content));
+        assert(/<h1>c<\/h1>/.test(files[2].content));
         done();
       });
   });
@@ -74,9 +74,9 @@ describe('app.renderFile()', function() {
         files.push(file);
       })
       .on('end', function () {
-        assert(/<h2>a<\/h2>/.test(files[0].contents.toString()));
-        assert(/<h2>b<\/h2>/.test(files[1].contents.toString()));
-        assert(/<h2>c<\/h2>/.test(files[2].contents.toString()));
+        assert(/<h2>a<\/h2>/.test(files[0].content));
+        assert(/<h2>b<\/h2>/.test(files[1].content));
+        assert(/<h2>c<\/h2>/.test(files[2].content));
         done();
       });
   });
@@ -91,9 +91,9 @@ describe('app.renderFile()', function() {
         files.push(file);
       })
       .on('end', function () {
-        assert(/<h1>foo<\/h1>/.test(files[0].contents.toString()));
-        assert(/<h1>b<\/h1>/.test(files[1].contents.toString()));
-        assert(/<h1>c<\/h1>/.test(files[2].contents.toString()));
+        assert(/<h1>foo<\/h1>/.test(files[0].content));
+        assert(/<h1>b<\/h1>/.test(files[1].content));
+        assert(/<h1>c<\/h1>/.test(files[2].content));
         done();
       });
   });
@@ -110,9 +110,9 @@ describe('app.renderFile()', function() {
         files.push(file);
       })
       .on('end', function () {
-        assert(/this is a/.test(files[0].contents.toString()));
-        assert(/this is b/.test(files[1].contents.toString()));
-        assert(/this is c/.test(files[2].contents.toString()));
+        assert(/this is a/.test(files[0].content));
+        assert(/this is b/.test(files[1].content));
+        assert(/this is c/.test(files[2].content));
         assert.equal(files.length, 3);
         cb();
       });
