@@ -62,4 +62,4 @@ gulp.task('del', function(cb) {
   del(argv.d || 'test/_spec', cb);
 });
 
-gulp.task('default', ['test', 'spec', 'lint']);
+gulp.task('default', ['test', 'lint']);
