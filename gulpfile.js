@@ -2,9 +2,8 @@
 
 var gulp = require('gulp');
 var minimist = require('minimist');
-var stylish = require('jshint-stylish');
 var istanbul = require('gulp-istanbul');
-var jshint = require('gulp-jshint');
+var eslint = require('gulp-eslint');
 var mocha = require('gulp-mocha');
 var git = require('gulp-git');
 var del = require('rimraf');
@@ -37,8 +36,7 @@ gulp.task('test', ['clone', 'coverage'], function () {
 
 gulp.task('lint', function () {
   return gulp.src(lint.concat('test/*.js'))
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
+    .pipe(eslint())
 });
 
 gulp.task('spec', ['clone'], function (cb) {
