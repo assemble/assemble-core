@@ -5,51 +5,54 @@
   "license": "MIT",
   "homepage": "https://github.com/assemble/assemble-core",
   "authors": [
-    "Jon Schlinkert (https://github.com/jonschlinkert)"
-  ],
-  "main": [
-    "index.js"
+    "Jon Schlinkert (https://github.com/jonschlinkert)",
+    "Brian Woodward (https://github.com/doowb)"
   ],
   "dependencies": {
-    "assemble-fs": "^0.1.1",
-    "assemble-render-file": "^0.1.1",
-    "assemble-streams": "^0.1.1",
-    "composer": "^0.5.1",
+    "assemble-fs": "^0.2.1",
+    "assemble-render-file": "^0.2.0",
+    "assemble-streams": "^0.2.0",
+    "composer": "^0.7.0",
     "emitter-only": "^0.1.0",
-    "templates": "^0.3.5"
+    "templates": "^0.4.6"
   },
   "devDependencies": {
-    "async": "^1.4.2",
-    "base-methods": "^0.2.14",
+    "assemble-ask": "^0.1.4",
+    "assemble-loader": "^0.2.4",
+    "async": "^1.5.0",
+    "base-methods": "^0.4.1",
     "buffer-equal": "0.0.1",
+    "cli-prompt": "^0.4.2",
     "consolidate": "^0.13.1",
     "coveralls": "^2.11.4",
     "define-property": "^0.2.5",
     "engine-base": "^0.1.2",
     "engine-handlebars": "^0.8.0",
-    "event-stream": "^3.3.1",
-    "get-value": "^1.2.1",
+    "event-stream": "^3.3.2",
+    "get-value": "^2.0.0",
     "graceful-fs": "^4.1.2",
     "gulp": "^3.9.0",
-    "gulp-git": "^1.5.0",
-    "gulp-istanbul": "^0.10.1",
-    "gulp-jshint": "^1.11.2",
-    "gulp-mocha": "^2.1.3",
+    "gulp-eslint": "^1.1.0",
+    "gulp-git": "^1.6.0",
+    "gulp-istanbul": "^0.10.2",
+    "gulp-mocha": "^2.2.0",
     "is-buffer": "^1.1.0",
-    "istanbul": "^0.3.22",
-    "jshint-stylish": "^2.0.1",
+    "istanbul": "^0.4.0",
     "kind-of": "^2.0.1",
-    "load-pkg": "^1.3.0",
+    "load-pkg": "^2.0.1",
     "look-up": "^0.8.1",
-    "mocha": "^2.3.3",
-    "parser-front-matter": "^1.2.5",
-    "resolve-glob": "^0.1.2",
+    "minimist": "^1.2.0",
+    "mocha": "*",
+    "myth": "^1.5.0",
+    "parser-front-matter": "^1.3.0",
+    "resolve-glob": "^0.1.7",
     "rimraf": "^2.4.3",
-    "should": "^7.1.0",
-    "sinon": "^1.17.1",
+    "should": "*",
+    "sinon": "^1.17.2",
     "swig": "^1.4.2",
     "through2": "^2.0.0",
-    "vinyl": "^1.0.0"
+    "to-file": "^0.1.5",
+    "vinyl": "^1.1.0"
   },
   "keywords": [
     "api",
@@ -94,5 +97,47 @@
     "website",
     "yaml",
     "yeoman"
-  ]
+  ],
+  "version": "0.1.11",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "maintainers": [
+    "Jon Schlinkert (https://github.com/jonschlinkert)",
+    "Brian Woodward (https://github.com/doowb)"
+  ],
+  "contributors": [
+    "Jon Schlinkert (https://github.com/jonschlinkert)",
+    "Brian Woodward (https://github.com/doowb)"
+  ],
+  "bugs": {
+    "url": "https://github.com/assemble/assemble-core/issues"
+  },
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "verb": {
+    "related": {
+      "list": [
+        "composer",
+        "generate",
+        "boilerplate",
+        "scaffold",
+        "templates",
+        "verb"
+      ]
+    },
+    "reflinks": [
+      "assemble",
+      "scaffold",
+      "boilerplate",
+      "template",
+      "template",
+      "verb"
+    ]
+  }
 }
