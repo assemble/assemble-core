@@ -18,7 +18,8 @@
   },
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "utils.js"
   ],
   "engines": {
     "node": ">=0.10.0"
@@ -29,9 +30,9 @@
   "dependencies": {
     "assemble-fs": "^0.2.1",
     "assemble-render-file": "^0.3.0",
-    "assemble-streams": "^0.2.0",
+    "assemble-streams": "^0.3.0",
     "base-tasks": "^0.1.2",
-    "emitter-only": "^0.1.0",
+    "lazy-cache": "^0.2.4",
     "templates": "^0.5.0"
   },
   "devDependencies": {

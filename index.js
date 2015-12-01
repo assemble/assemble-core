@@ -5,8 +5,7 @@
  */
 
 var Templates = require('templates');
-var only = require('emitter-only');
-var tasks = require('base-tasks');
+var utils = require('./utils');
 
 /**
  * Create an `assemble` application. This is the main function exported
@@ -25,24 +24,18 @@ function Assemble(options) {
     return new Assemble(options);
   }
 
+  this.options = options || {};
   Templates.call(this, options);
-  this.use(tasks(this.options.name || 'assemble'));
-
-  /**
-   * Allow events to be registered only once, so
-   * that we can reinitialize the application but
-   * avoid re-registering the same emitters.
-   */
-
-  this.mixin('only', only.bind(this));
+  var name = this.options.name || 'assemble';
 
   /**
    * Load core plugins
    */
 
-  this.use(require('assemble-fs'));
-  this.use(require('assemble-streams'));
-  this.use(require('assemble-render-file')());
+  this.use(utils.tasks(name));
+  this.use(utils.fs);
+  this.use(utils.streams);
+  this.use(utils.render());
 }
 
 /**
