@@ -33,7 +33,7 @@
     "assemble-streams": "^0.3.0",
     "base-tasks": "^0.1.2",
     "lazy-cache": "^0.2.4",
-    "templates": "^0.5.0"
+    "templates": "^0.6.0"
   },
   "devDependencies": {
     "assemble-ask": "^0.1.4",
