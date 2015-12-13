@@ -5,38 +5,38 @@ var support = require('./support');
 var App = support.resolve();
 var app;
 
-describe('render', function () {
-  describe('engine', function () {
+describe('render', function() {
+  describe('engine', function() {
     var view;
 
-    beforeEach(function () {
+    beforeEach(function() {
       app = new App({silent: true});
       app.engine('tmpl', require('engine-base'));
       app.create('page');
       view = {contents: new Buffer('a <%= name %> b'), locals: {name: 'Halle'}};
     });
 
-    it('should render a view from an object:', function (done) {
+    it('should render a view from an object:', function(done) {
       app.page('a.tmpl', view)
-        .render(function (err, res) {
+        .render(function(err, res) {
           if (err) return done(err);
           assert(res.contents.toString() === 'a Halle b');
           done();
         });
     });
 
-    it('should throw an error when a variable is undefined:', function (done) {
+    it('should throw an error when a variable is undefined:', function(done) {
       delete app.cache.data.name;
       delete view.locals.name;
 
       app.page('a.tmpl', view)
-        .render(function (err) {
+        .render(function(err) {
           assert(err.message === 'name is not defined');
           done();
         });
     });
 
-    it('should re-throw an error when rethrow is true:', function (done) {
+    it('should re-throw an error when rethrow is true:', function(done) {
       app = new App({rethrow: true, silent: true});
 
       delete app.cache.data.name;
@@ -46,13 +46,13 @@ describe('render', function () {
       app.create('page');
 
       app.page('a.tmpl', view)
-        .render(function (err) {
+        .render(function(err) {
           assert(err.message === 'name is not defined');
           done();
         });
     });
 
-    it('should emit a re-thrown error when rethrow is true:', function (done) {
+    it('should emit a re-thrown error when rethrow is true:', function(done) {
       app = new App({rethrow: true, silent: false});
 
       delete app.cache.data.name;
@@ -67,7 +67,7 @@ describe('render', function () {
       });
 
       app.page('a.tmpl', view)
-        .render(function (err) {
+        .render(function(err) {
           assert(err.message === 'name is not defined');
         });
     });
