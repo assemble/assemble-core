@@ -9,45 +9,45 @@
     "Brian Woodward (https://github.com/doowb)"
   ],
   "dependencies": {
-    "assemble-fs": "^0.2.1",
-    "assemble-render-file": "^0.2.0",
-    "assemble-streams": "^0.2.0",
-    "composer": "^0.7.0",
-    "emitter-only": "^0.1.0",
-    "templates": "^0.4.6"
+    "assemble-fs": "^0.3.1",
+    "assemble-render-file": "^0.3.0",
+    "assemble-streams": "^0.3.0",
+    "base-tasks": "^0.1.2",
+    "lazy-cache": "^1.0.2",
+    "templates": "^0.6.3"
   },
   "devDependencies": {
     "assemble-ask": "^0.1.4",
     "assemble-loader": "^0.2.4",
     "async": "^1.5.0",
-    "base-methods": "^0.4.1",
+    "base-methods": "^0.6.1",
     "buffer-equal": "0.0.1",
     "cli-prompt": "^0.4.2",
     "consolidate": "^0.13.1",
-    "coveralls": "^2.11.4",
+    "coveralls": "^2.11.6",
     "define-property": "^0.2.5",
     "engine-base": "^0.1.2",
     "engine-handlebars": "^0.8.0",
     "event-stream": "^3.3.2",
-    "get-value": "^2.0.0",
+    "get-value": "^2.0.2",
     "graceful-fs": "^4.1.2",
     "gulp": "^3.9.0",
-    "gulp-eslint": "^1.1.0",
+    "gulp-eslint": "^1.1.1",
     "gulp-git": "^1.6.0",
-    "gulp-istanbul": "^0.10.2",
+    "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
     "is-buffer": "^1.1.0",
-    "istanbul": "^0.4.0",
-    "kind-of": "^2.0.1",
-    "load-pkg": "^2.0.1",
-    "look-up": "^0.8.1",
+    "istanbul": "^0.4.1",
+    "kind-of": "^3.0.2",
+    "load-pkg": "^3.0.1",
+    "look-up": "^0.8.2",
     "minimist": "^1.2.0",
-    "mocha": "*",
+    "mocha": "^2.3.4",
     "myth": "^1.5.0",
     "parser-front-matter": "^1.3.0",
     "resolve-glob": "^0.1.7",
-    "rimraf": "^2.4.3",
-    "should": "*",
+    "rimraf": "^2.4.4",
+    "should": "^8.0.1",
     "sinon": "^1.17.2",
     "swig": "^1.4.2",
     "through2": "^2.0.0",
@@ -97,47 +97,5 @@
     "website",
     "yaml",
     "yeoman"
-  ],
-  "version": "0.1.11",
-  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
-  "maintainers": [
-    "Jon Schlinkert (https://github.com/jonschlinkert)",
-    "Brian Woodward (https://github.com/doowb)"
-  ],
-  "contributors": [
-    "Jon Schlinkert (https://github.com/jonschlinkert)",
-    "Brian Woodward (https://github.com/doowb)"
-  ],
-  "bugs": {
-    "url": "https://github.com/assemble/assemble-core/issues"
-  },
-  "files": [
-    "index.js"
-  ],
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "verb": {
-    "related": {
-      "list": [
-        "composer",
-        "generate",
-        "boilerplate",
-        "scaffold",
-        "templates",
-        "verb"
-      ]
-    },
-    "reflinks": [
-      "assemble",
-      "scaffold",
-      "boilerplate",
-      "template",
-      "template",
-      "verb"
-    ]
-  }
+  ]
 }
