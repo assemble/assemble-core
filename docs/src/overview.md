@@ -53,13 +53,13 @@ var less = require('gulp-less');
 var app = assemble();
 
 app.task('html', function() {
-  app.src('templates/*.hbs')
+  return app.src('templates/*.hbs')
     .pipe(extname('.html'))
     .pipe(app.dest('dist/'));
 });
 
 app.task('css', function () {
-  app.src('styles/*.less')
+  return app.src('styles/*.less')
     .pipe(less())
     .pipe(app.dest('dist/assets/css'));
 });
