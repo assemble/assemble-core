@@ -301,11 +301,11 @@ If Assemble doesn't do what you need, [please let us know][issue].
 
 **v0.6.0**
 
-* Bumped [assemble-fs](https://github.com/jonschlinkert/assemble-fs) plugin to 0.5.0, which introduces `onStream` and `preWrite` middleware handlers.
+* Bumps [assemble-fs](https://github.com/jonschlinkert/assemble-fs) plugin to 0.5.0, which introduces `onStream` and `preWrite` middleware handlers.
+* Bumps [templates](https://github.com/jonschlinkert/templates) to 0.7.0, which fixes how non-cached collections are initialized. This was done as a minor instead of a patch since - although it's a fix - it could theoretically break someone's setup
 
 **v0.5.0**
-
-* Bumped [templates](https://github.com/jonschlinkert/templates) to latest, 0.6.0, since it uses the latest [base-methods](https://github.com/jonschlinkert/base-methods), which introduces prototype mixins. No API changes.
+* Bumps [templates](https://github.com/jonschlinkert/templates) to latest, 0.6.0, since it uses the latest [base-methods](https://github.com/jonschlinkert/base-methods), which introduces prototype mixins. No API changes.
 
 **v0.4.0**
 
