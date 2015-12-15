@@ -6,16 +6,32 @@ var matter = require('parser-front-matter');
 var assemble = require('../..');
 var app = assemble();
 
+/**
+ * Add the `assemble-loader` plugin
+ */
+
 app.use(loader());
 
-app.engine(['hbs', 'md'], require('engine-handlebars') );
+/**
+ * Register a template engine for rendering templates
+ */
+
+app.engine(['hbs', 'md'], require('engine-handlebars'));
+
+/**
+ * Create a custom template (view) collection
+ */
 
 app.create('layouts', {
   viewType: 'layout',
-  renameKey: function (key) {
+  renameKey: function(key) {
     return path.basename(key);
   }
 });
+
+/**
+ * Add some "global" data to be used in templates
+ */
 
 app.data({
   site: {
@@ -23,7 +39,11 @@ app.data({
   }
 });
 
-app.onLoad(/./, function (view, next) {
+/**
+ * Middleware for parsing front-matter in templates
+ */
+
+app.onLoad(/./, function(view, next) {
   matter.parse(view, next);
 });
 
@@ -31,13 +51,13 @@ app.onLoad(/./, function (view, next) {
  * Build.
  */
 
-app.task('site', function () {
+app.task('site', function() {
   app.layouts('_layouts/*.html');
   app.src('_posts/*')
     .pipe(app.renderFile())
     .pipe(app.dest('_site'));
 });
 
-app.build('site', function (err) {
+app.build('site', function(err) {
   if (err) console.log(err);
 });
