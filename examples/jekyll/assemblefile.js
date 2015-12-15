@@ -7,6 +7,9 @@ var assemble = require('../..');
 var app = assemble();
 
 app.use(loader());
+
+app.engine(['hbs', 'md'], require('engine-handlebars') );
+
 app.create('layouts', {
   viewType: 'layout',
   renameKey: function (key) {
