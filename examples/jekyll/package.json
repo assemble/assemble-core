@@ -1,20 +1,12 @@
 {
   "name": "jekyll-example",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "assemble-core": "^0.1.1",
     "assemble-loader": "^0.2.2",
-    "consolidate": "^0.13.1",
     "engine-handlebars": "^0.8.0",
-    "map-config": "^0.1.1",
-    "metalsmith": "^1.0.0",
-    "metalsmith-drafts": "0.0.1",
-    "metalsmith-markdown": "^0.2.1",
-    "metalsmith-permalinks": "^0.1.0",
-    "metalsmith-templates": "^0.6.1",
-    "parser-front-matter": "^1.2.5",
-    "resolve-dir": "^0.1.0",
-    "swig": "^1.4.2"
+    "gulp-extname": "^0.2.0",
+    "parser-front-matter": "^1.2.5"
   },
   "scripts": {
     "build": "metalsmith"
