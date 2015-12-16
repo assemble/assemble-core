@@ -299,6 +299,10 @@ If Assemble doesn't do what you need, [please let us know][issue].
 
 ## History
 
+**v0.7.0**
+
+* Bumps [templates](https://github.com/jonschlinkert/templates) to 0.8.0 to take advantage of `isType` method for checking a collection type, and a number of improvements to how collections and views are instantiated and named.
+
 **v0.6.0**
 
 * Bumps [assemble-fs](https://github.com/jonschlinkert/assemble-fs) plugin to 0.5.0, which introduces `onStream` and `preWrite` middleware handlers.
