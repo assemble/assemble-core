@@ -3,11 +3,14 @@
 var fs = require('fs');
 var path = require('path');
 var toFile = require('to-file');
+var extname = require('gulp-extname');
+var runtimes = require('composer-runtimes');
 var matter = require('parser-front-matter');
 var assemble = require('..');
 
 module.exports = function smithy(dir, filepath) {
   var app = assemble();
+  app.use(runtimes());
 
   app.engine('*', require('engine-handlebars'));
   app.onLoad(/./, function (view, next) {
@@ -19,21 +22,14 @@ module.exports = function smithy(dir, filepath) {
     app.files.addView(toFile(fp, opts));
   });
 
-  app.use(function(app) {
-    app.build = function(dir, cb) {
-      if (typeof dir === 'function') {
-        cb = dir;
-        dir = 'build';
-      }
-      app.toStream('files')
-        .pipe(app.renderFile())
-        .pipe(app.dest(dir))
-        .on('error', cb)
-        .on('end', cb);
-    };
-    return app;
+  app.task('default', function() {
+    return app.toStream('files')
+      .pipe(app.renderFile('*'))
+      .pipe(extname())
+      .pipe(app.dest('build'))
   });
 
+  app.build = app.build.bind(app, 'default');
   return app;
 };
 
@@ -47,10 +43,7 @@ function toViews(dir, filepath, fn) {
     var fp = path.resolve(base, name);
     var stat = fs.lstatSync(fp);
     if (stat.isFile()) {
-      fn(fp, {
-        base: base,
-        stat: stat
-      });
+      fn(fp, {base: base, stat: stat});
     }
   }
 }
