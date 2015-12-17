@@ -40,6 +40,13 @@ app.create('layouts', {
   }
 });
 
+
+/**
+ * Register the helper-markdown for markdown support
+ */
+
+app.helper('markdown', require('helper-markdown'));
+
 /**
  * Add some "global" data to be used in templates
  */
