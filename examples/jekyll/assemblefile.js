@@ -40,12 +40,12 @@ app.create('layouts', {
   }
 });
 
-
 /**
  * Register the helper-markdown for markdown support
  */
 
 app.helper('markdown', require('helper-markdown'));
+app.helper('date', require('helper-date'));
 
 /**
  * Add some "global" data to be used in templates
@@ -83,4 +83,5 @@ app.task('site', function() {
 
 app.build('site', function(err) {
   if (err) return console.log(err);
+  console.log('done!');
 });
