@@ -5,8 +5,8 @@
   "license": "MIT",
   "homepage": "https://github.com/assemble/assemble-core",
   "authors": [
-    "Jon Schlinkert (https://github.com/jonschlinkert)",
-    "Brian Woodward (https://github.com/doowb)"
+    "Brian Woodward (https://github.com/doowb)",
+    "Jon Schlinkert (https://github.com/jonschlinkert)"
   ],
   "dependencies": {
     "assemble-fs": "^0.3.1",
