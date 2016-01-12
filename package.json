@@ -1,7 +1,7 @@
 {
   "name": "assemble-core",
   "description": "The core assemble application with no presets or defaults. All configuration is left to the implementor.",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "homepage": "https://github.com/assemble/assemble-core",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "maintainers": [
@@ -28,17 +28,16 @@
     "test": "mocha"
   },
   "dependencies": {
-    "assemble-fs": "^0.3.2",
-    "assemble-render-file": "^0.3.0",
+    "assemble-fs": "^0.3.5",
+    "assemble-render-file": "^0.3.1",
     "assemble-streams": "^0.3.0",
     "base-tasks": "^0.1.2",
     "lazy-cache": "^1.0.3",
-    "templates": "^0.9.2"
+    "templates": "^0.10.2"
   },
   "devDependencies": {
     "assemble-loader": "^0.2.6",
     "async": "^1.5.0",
-    "base-methods": "^0.6.2",
     "base-questions": "^0.2.3",
     "base-store": "^0.3.2",
     "buffer-equal": "0.0.1",
