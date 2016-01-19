@@ -18,13 +18,13 @@ function url(repo) {
   return 'https://github.com/' + repo;
 }
 
-gulp.task('coverage', function () {
+gulp.task('coverage', function() {
   return gulp.src(lint)
     .pipe(istanbul())
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['coverage'], function () {
+gulp.task('test', ['coverage'], function() {
   return gulp.src('test/*.js')
     .pipe(mocha({reporter: 'spec'}))
     .pipe(istanbul.writeReports())
@@ -34,21 +34,21 @@ gulp.task('test', ['coverage'], function () {
     }));
 });
 
-gulp.task('lint', function () {
+gulp.task('lint', function() {
   return gulp.src(lint.concat('test/*.js'))
     .pipe(eslint())
 });
 
-gulp.task('spec', ['clone'], function (cb) {
+gulp.task('spec', ['clone'], function(cb) {
   gulp.src(['test/_spec/test/*.js'])
     .pipe(mocha({reporter: 'spec'}))
-    .on('end', function () {
+    .on('end', function() {
       del('test/_spec', cb);
     });
 });
 
 gulp.task('clone', function(cb) {
-  del('test/_spec', function (err) {
+  del('test/_spec', function(err) {
     if (err) return cb(err);
     git.clone(url('jonschlinkert/templates'), {
       args: 'test/_spec'
