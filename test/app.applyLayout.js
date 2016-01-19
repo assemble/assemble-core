@@ -1,3 +1,5 @@
+'use strict';
+
 require('mocha');
 require('should');
 var assert = require('assert');
@@ -21,20 +23,20 @@ describe('helpers', function() {
       app.create('page');
     });
 
-    it('should throw an error when a layout cannot be found:', function(done) {
+    it('should throw an error when a layout cannot be found:', function(cb) {
       app.layout('fofof.tmpl', {content: '..'});
       app.page('a.tmpl', page)
         .render(function(err) {
           assert(/layouts/.test(err.message));
-          done();
+          cb();
         });
     });
 
-    it('should emit an error when a layout cannot be found:', function(done) {
+    it('should emit an error when a layout cannot be found:', function(cb) {
       app.layout('fofof.tmpl', {content: '..'});
       app.on('error', function(err) {
         assert(/layouts/.test(err.message));
-        done();
+        cb();
       });
 
       app.page('a.tmpl', page)
@@ -42,42 +44,42 @@ describe('helpers', function() {
         });
     });
 
-    it('should throw an error - layout defined but no layouts registered:', function(done) {
+    it('should throw an error - layout defined but no layouts registered:', function(cb) {
       app.page('a.tmpl', page)
         .render(function(err) {
           assert(/layouts/.test(err.message));
-          done();
+          cb();
         });
     });
 
-    it('should emit an error - layout defined but no layouts registered:', function(done) {
+    it('should emit an error - layout defined but no layouts registered:', function(cb) {
       app.on('error', function(err) {
         assert(/layouts/.test(err.message));
-        done();
+        cb();
       });
       app.page('a.tmpl', page)
         .render(function() {
         });
     });
 
-    it('should wrap a view with a layout (view.render):', function(done) {
+    it('should wrap a view with a layout (view.render):', function(cb) {
       app.layout('default.tmpl', {content: 'before {% body %} after'});
       app.page('a.tmpl', page)
         .render(function(err) {
-          if (err) return done(err);
-          done();
+          if (err) return cb(err);
+          cb();
         });
     });
 
-    it('should wrap a view with a layout (app.render):', function(done) {
+    it('should wrap a view with a layout (app.render):', function(cb) {
       app.layout('default.tmpl', {content: 'before {% body %} after'});
       app.page('a.tmpl', page);
 
       var view = app.pages.getView('a.tmpl');
       app.render(view, function(err, res) {
-        if (err) return done(err);
+        if (err) return cb(err);
         assert(res.contents.toString() === 'before Halle after');
-        done();
+        cb();
       });
     });
   });
