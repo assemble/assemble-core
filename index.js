@@ -26,13 +26,13 @@ function Assemble(options) {
 
   this.options = options || {};
   Templates.call(this, options);
-  var name = this.options.name || 'assemble';
+  this.name || 'assemble';
 
   /**
    * Load core plugins
    */
 
-  this.use(utils.tasks(name));
+  this.use(utils.tasks(this.name));
   this.use(utils.fs());
   this.use(utils.streams);
   this.use(utils.render());
