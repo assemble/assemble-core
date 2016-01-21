@@ -12,30 +12,24 @@ var argv = minimist(process.argv.slice(2), {
   alias: {d: 'del'}
 });
 
-var lint = ['index.js', 'lib/*.js'];
-
 function url(repo) {
   return 'https://github.com/' + repo;
 }
 
 gulp.task('coverage', function() {
-  return gulp.src(lint)
+  return gulp.src('index.js')
     .pipe(istanbul())
     .pipe(istanbul.hookRequire());
 });
 
 gulp.task('test', ['coverage'], function() {
   return gulp.src('test/*.js')
-    .pipe(mocha({reporter: 'spec'}))
+    .pipe(mocha())
     .pipe(istanbul.writeReports())
-    .pipe(istanbul.writeReports({
-      reporters: [ 'text' ],
-      reportOpts: {dir: 'coverage', file: 'summary.txt'}
-    }));
 });
 
 gulp.task('lint', function() {
-  return gulp.src(lint.concat('test/*.js'))
+  return gulp.src(['index.js', 'test/*.js'])
     .pipe(eslint())
 });
 
