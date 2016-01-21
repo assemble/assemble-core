@@ -6,8 +6,6 @@ require('should');
 var assert = require('assert');
 var support = require('./support/');
 assert.containEql = support.containEql;
-
-var support = require('./support');
 var App = support.resolve();
 var List = App.List;
 var Group = App.Group;
