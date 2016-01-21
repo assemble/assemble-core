@@ -33,9 +33,9 @@ function Assemble(options) {
    */
 
   this.use(utils.tasks(this.name));
-  this.use(utils.fs());
-  this.use(utils.streams);
+  this.use(utils.streams());
   this.use(utils.render());
+  this.use(utils.fs());
 }
 
 /**
