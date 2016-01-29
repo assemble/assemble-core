@@ -7,7 +7,7 @@ var App = support.resolve();
 var View = App.View;
 var view;
 
-describe('helpers', function() {
+describe('view.render', function() {
   describe('rendering', function() {
     it('should expose `.render` for rendering a view:', function(cb) {
       view = new View({path: 'a.tmpl', content: '<%= a %>'})

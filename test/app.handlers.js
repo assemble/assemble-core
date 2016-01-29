@@ -30,7 +30,7 @@ function decorateViews(views) {
   return views;
 }
 
-describe('handlers', function() {
+describe('app.handlers', function() {
   describe('custom handlers', function() {
     beforeEach(function() {
       app = new App();

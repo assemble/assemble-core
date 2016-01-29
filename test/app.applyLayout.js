@@ -14,7 +14,7 @@ var page = {
   }
 };
 
-describe('helpers', function() {
+describe('app.applyLayout', function() {
   describe('rendering', function() {
     beforeEach(function() {
       app = new App();

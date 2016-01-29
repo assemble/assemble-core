@@ -4,7 +4,7 @@ var assert = require('assert');
 var App = require('..');
 var app;
 
-describe('task()', function() {
+describe('app.task', function() {
   beforeEach(function() {
     app = new App();
   });
