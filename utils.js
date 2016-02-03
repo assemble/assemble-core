@@ -15,7 +15,7 @@ require = utils;
 require('assemble-fs', 'fs');
 require('assemble-render-file', 'render');
 require('assemble-streams', 'streams');
-require('base-tasks', 'tasks');
+require('base-task', 'tasks');
 require = fn;
 
 /**
