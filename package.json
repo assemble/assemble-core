@@ -30,10 +30,10 @@
   "dependencies": {
     "assemble-fs": "^0.4.1",
     "assemble-render-file": "^0.3.1",
-    "assemble-streams": "^0.4.0",
+    "assemble-streams": "^0.4.1",
     "base-task": "^0.4.0",
     "lazy-cache": "^1.0.3",
-    "templates": "^0.11.4"
+    "templates": "^0.12.0"
   },
   "devDependencies": {
     "async": "^1.5.2",
