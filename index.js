@@ -24,9 +24,8 @@ function Assemble(options) {
     return new Assemble(options);
   }
 
-  this.options = options || {};
   Templates.call(this, options);
-  this.name = 'assemble';
+  this.is('assemble');
 
   /**
    * Load core plugins
