@@ -5,6 +5,7 @@
  */
 
 var Templates = require('templates');
+var debug = Templates.debug;
 var utils = require('./utils');
 
 /**
@@ -26,6 +27,7 @@ function Assemble(options) {
 
   Templates.call(this, options);
   this.is('assemble');
+  debug(this);
 
   /**
    * Load core plugins
@@ -53,5 +55,6 @@ module.exports = Assemble;
  * Expose static properties for unit tests
  */
 
+Assemble.debug = Templates.debug;
 Assemble.utils = Templates.utils;
 Assemble._ = Templates._;
