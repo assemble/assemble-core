@@ -295,6 +295,10 @@ If Assemble doesn't do what you need, [please let us know][issue].
 
 ## History
 
+**v0.14.0**
+
+* Private method `.mergePartialsSync` rename was reverted to `.mergePartials` to be consistent with other updates in `.render` and `.compile`. No other breaking changes, but some new features were added to [templates](https://github.com/jonschlinkert/templates) for handling context in views and helpers.
+
 **v0.13.0**
 
 * Breaking change: bumps [templates](https://github.com/jonschlinkert/templates) to v0.13.0 to fix obscure rendering bug when multiple duplicate partials were rendered in the same view. But the fix required changing the `.mergePartials` method to be async. If you're currently using `.mergePartials`, you can continue to do so synchronously using the `.mergePartialsSync` method.
