@@ -29,11 +29,11 @@
   },
   "dependencies": {
     "assemble-fs": "^0.4.1",
-    "assemble-render-file": "^0.3.3",
+    "assemble-render-file": "^0.4.0",
     "assemble-streams": "^0.4.1",
     "base-task": "^0.4.1",
     "lazy-cache": "^1.0.3",
-    "templates": "^0.14.1"
+    "templates": "^0.14.4"
   },
   "devDependencies": {
     "async": "^1.5.2",
