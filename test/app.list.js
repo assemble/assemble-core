@@ -91,7 +91,7 @@ describe('app.list', function() {
     it('should render a item with inherited app.render', function(cb) {
       app.page('test/fixtures/templates/a.tmpl')
         .use(function(item) {
-          if (!item.contents) {
+          if (!item.content) {
             item.contents = fs.readFileSync(item.path);
           }
         })

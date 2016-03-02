@@ -25,7 +25,7 @@ describe('app.collection.render', function() {
     });
 
     it('should throw an error when an engine is not defined:', function(cb) {
-      pages.addView('foo.bar', {content: '<%= name %>'});
+      pages.addView('foo.bar', { content: '<%= name %>' });
       var page = pages.getView('foo.bar');
 
       app.pages.render(page, function(err) {
@@ -131,7 +131,7 @@ describe('app.collection.render', function() {
         'g': {content: '<%= title %>', locals: {title: 'ggg'}},
         'h': {content: '<%= title %>', locals: {title: 'hhh'}},
         'i': {content: '<%= title %>', locals: {title: 'iii'}},
-        'j': {content: '<%= title %>', locals: {title: 'jjj'}},
+        'j': {content: '<%= title %>', locals: {title: 'jjj'}}
       });
 
       pages.use(function(collection) {

@@ -138,8 +138,8 @@ describe('list', function() {
 
   describe('addItem', function() {
     beforeEach(function() {
-     list = new List();
-   });
+      list = new List();
+    });
 
     it('should add items to a list', function() {
       list.addItem('a', {content: '...'});
@@ -160,10 +160,10 @@ describe('list', function() {
       list.addItem('c', {content: '...'});
       assert(list.items.length === 3);
       var a = list.getItem('a');
-      list.removeItem(a);
+      list.deleteItem(a);
       assert(list.items.length === 2);
       var c = list.getItem('c');
-      list.removeItem(c);
+      list.deleteItem(c);
       assert(list.items[0].key === 'b');
     });
 
@@ -172,9 +172,9 @@ describe('list', function() {
       list.addItem('b', {content: '...'});
       list.addItem('c', {content: '...'});
       assert(list.items.length === 3);
-      list.removeItem('c');
+      list.deleteItem('c');
       assert(list.items.length === 2);
-      list.removeItem('b');
+      list.deleteItem('b');
       assert(list.items[0].key === 'a');
     });
   });
