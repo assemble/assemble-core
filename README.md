@@ -297,6 +297,9 @@ If Assemble doesn't do what you need, [please let us know][issue].
 
 **v0.14.0**
 
+* bumps [templates](https://github.com/jonschlinkert/templates) to v0.15.1
+* adds logging methods from [base-logger](https://github.com/node-base/base-logger) (`.log`, `.verbose`, etc)
+* `.handleView` method is now deprecated, use `.handleOnce` instead
 * Private method `.mergePartialsSync` rename was reverted to `.mergePartials` to be consistent with other updates in `.render` and `.compile`. No other breaking changes, but some new features were added to [templates](https://github.com/jonschlinkert/templates) for handling context in views and helpers.
 
 **v0.13.0**
