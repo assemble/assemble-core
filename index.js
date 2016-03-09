@@ -26,17 +26,9 @@ function Assemble(options) {
   }
 
   Templates.call(this, options);
-  this.is('assemble');
+  this.is(Assemble);
   debug(this);
-
-  /**
-   * Load core plugins
-   */
-
-  this.use(utils.tasks(this.name));
-  this.use(utils.streams());
-  this.use(utils.render());
-  this.use(utils.fs());
+  this.initAssembleCore();
 }
 
 /**
@@ -44,6 +36,22 @@ function Assemble(options) {
  */
 
 Templates.extend(Assemble);
+Templates.bubble(Assemble);
+
+/**
+ * Load core plugins
+ */
+
+Assemble.prototype.initAssembleCore = function() {
+  Assemble.emit('preInit', this);
+
+  this.use(utils.tasks(this.name));
+  this.use(utils.streams());
+  this.use(utils.render());
+  this.use(utils.fs());
+
+  Assemble.emit('init', this);
+};
 
 /**
  * Expose the `Assemble` constructor
