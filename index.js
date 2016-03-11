@@ -26,7 +26,7 @@ function Assemble(options) {
   }
 
   Templates.call(this, options);
-  this.is(Assemble);
+  this.is('assemble');
   debug(this);
   this.initAssembleCore();
 }
