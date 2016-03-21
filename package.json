@@ -28,12 +28,12 @@
     "test": "mocha"
   },
   "dependencies": {
-    "assemble-fs": "^0.4.3",
+    "assemble-fs": "^0.4.6",
     "assemble-render-file": "^0.4.1",
-    "assemble-streams": "^0.4.2",
-    "base-task": "^0.4.1",
+    "assemble-streams": "^0.5.0",
+    "base-task": "^0.4.2",
     "lazy-cache": "^1.0.3",
-    "templates": "^0.15.6"
+    "templates": "^0.15.12"
   },
   "devDependencies": {
     "async": "^1.5.2",
