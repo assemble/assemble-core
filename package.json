@@ -29,43 +29,43 @@
   },
   "dependencies": {
     "assemble-fs": "^0.4.6",
-    "assemble-render-file": "^0.5.0",
+    "assemble-render-file": "^0.5.1",
     "assemble-streams": "^0.5.0",
     "base-task": "^0.4.2",
     "lazy-cache": "^1.0.3",
-    "templates": "^0.16.0"
+    "templates": "^0.16.1"
   },
   "devDependencies": {
-    "async": "^1.5.2",
+    "async": "^2.0.0-rc.2",
     "buffer-equal": "^1.0.0",
     "consolidate": "^0.14.0",
-    "coveralls": "^2.11.6",
+    "coveralls": "^2.11.9",
     "define-property": "^0.2.5",
     "engine-base": "^0.1.2",
     "engine-handlebars": "^0.8.0",
     "event-stream": "^3.3.2",
-    "expect": "^1.14.0",
-    "get-value": "^2.0.3",
-    "graceful-fs": "^4.1.2",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^1.1.1",
-    "gulp-format-md": "^0.1.5",
+    "expect": "^1.16.0",
+    "get-value": "^2.0.5",
+    "graceful-fs": "^4.1.3",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-format-md": "^0.1.7",
     "gulp-git": "^1.7.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
-    "is-buffer": "^1.1.1",
+    "is-buffer": "^1.1.3",
     "istanbul": "^0.4.2",
     "kind-of": "^3.0.2",
     "load-pkg": "^3.0.1",
     "minimist": "^1.2.0",
-    "mocha": "*",
+    "mocha": "^2.4.5",
     "parser-front-matter": "^1.3.0",
     "resolve-glob": "^0.1.8",
-    "rimraf": "^2.5.1",
-    "should": "*",
+    "rimraf": "^2.5.2",
+    "should": "^8.3.0",
     "sinon": "^1.17.3",
     "swig": "^1.4.2",
-    "through2": "^2.0.0",
+    "through2": "^2.0.1",
     "vinyl": "^1.1.1"
   },
   "keywords": [
@@ -113,7 +113,9 @@
     "yeoman"
   ],
   "verb": {
-    "toc": true,
+    "run": true,
+    "toc": false,
+    "layout": false,
     "tasks": [
       "readme"
     ],
@@ -151,8 +153,14 @@
       "templates",
       "verb",
       "vinyl-fs",
-      "base-logger"
-    ]
+      "base-logger",
+      "parser-front-matter",
+      "engine-handlebars",
+      "consolidate"
+    ],
+    "lint": {
+      "reflinks": true
+    }
   },
   "lintDeps": {
     "ignore": [
