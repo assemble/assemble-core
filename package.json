@@ -21,6 +21,7 @@
     "index.js",
     "utils.js"
   ],
+  "main": "index.js",
   "engines": {
     "node": ">=4.0"
   },
@@ -139,24 +140,24 @@
       "assemble-fs",
       "assemble-render-file",
       "assemble-streams",
+      "base-logger",
       "base-methods",
       "base-tasks",
       "base-watch",
       "boilerplate",
       "composer",
+      "consolidate",
       "emitter-only",
+      "engine-handlebars",
       "generate",
       "gulp",
       "handlebars",
       "lazy-cache",
+      "parser-front-matter",
       "scaffold",
       "templates",
       "verb",
-      "vinyl-fs",
-      "base-logger",
-      "parser-front-matter",
-      "engine-handlebars",
-      "consolidate"
+      "vinyl-fs"
     ],
     "lint": {
       "reflinks": true
@@ -164,8 +165,8 @@
   },
   "lintDeps": {
     "ignore": [
-      "examples",
-      "docs"
+      "docs",
+      "examples"
     ]
   }
 }

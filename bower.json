@@ -8,6 +8,9 @@
     "Jon Schlinkert (https://github.com/jonschlinkert)",
     "Brian Woodward (https://github.com/doowb)"
   ],
+  "main": [
+    "index.js"
+  ],
   "dependencies": {
     "assemble-fs": "^0.4.6",
     "assemble-render-file": "^0.5.2",
