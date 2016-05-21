@@ -704,7 +704,7 @@ describe('collection helpers', function() {
     app.create('snippet', {viewType: 'partial'});
     app.engine('hbs', require('engine-handlebars'));
     app.helper('log', function(ctx) {
-      console.log(ctx);
+      // console.log(ctx);
     });
   });
 

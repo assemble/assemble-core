@@ -15,10 +15,14 @@ describe('app.render', function() {
       app.create('page');
     });
 
-    it('should throw an error when no callback is given:', function() {
-      (function() {
+    it('should throw an error when no callback is given:', function(cb) {
+      try {
         app.render({});
-      }).should.throw('Templates#render is async and expects a callback function');
+        cb(new Error('expected an error'));
+      } catch (err) {
+        assert.equal(err.message, 'Templates#render is async and expects a callback function');
+        cb();
+      }
     });
 
     it('should throw an error when an engine is not defined:', function(cb) {
