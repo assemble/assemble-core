@@ -154,7 +154,8 @@
       "scaffold",
       "templates",
       "verb",
-      "vinyl-fs"
+      "vinyl-fs",
+      "assemble-loader"
     ],
     "lint": {
       "reflinks": true

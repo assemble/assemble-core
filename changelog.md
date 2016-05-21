@@ -1,25 +1,23 @@
 **v0.18.0**
 
-- bumps [templates][] to v0.15.1
-- adds logging methods from [base-logger][] (`.log`, `.verbose`, etc)
-- `.handleView` method is now deprecated, use `.handleOnce` instead
-- Private method `.mergePartialsSync` rename was reverted to `.mergePartials` to be consistent with other updates in `.render` and `.compile`. No other breaking changes, but some new features were added to [templates][] for handling context in views and helpers.
+- Bumps [assemble-loader][] to v0.5.0, which includes which fixes a bug where `renameKey` was not always being used when defined on collection loader options.
+- Bumps [templates][] to v0.18.0, which includes fixes for resolving layouts
 
 **v0.17.0**
 
-- bumps [templates][] to v0.17.0
+- Bumps [templates][] to v0.17.0
 
 **v0.16.0**
 
-- bumps [assemble-render-file][] to v0.5.0 and [templates][] to v0.16.0
+- Bumps [assemble-render-file][] to v0.5.0 and [templates][] to v0.16.0
 
 **v0.15.0**
 
-- bumps [assemble-streams][] to v0.5.0
+- Bumps [assemble-streams][] to v0.5.0
 
 **v0.14.0**
 
-- bumps [templates][] to v0.15.1
+- Bumps [templates][] to v0.15.1
 - adds logging methods from [base-logger][] (`.log`, `.verbose`, etc)
 - `.handleView` method is now deprecated, use `.handleOnce` instead
 - Private method `.mergePartialsSync` rename was reverted to `.mergePartials` to be consistent with other updates in `.render` and `.compile`. No other breaking changes, but some new features were added to [templates][] for handling context in views and helpers.
