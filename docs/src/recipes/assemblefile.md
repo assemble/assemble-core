@@ -2,8 +2,8 @@
 
 The following basic `assemblefile.js` includes tasks for generating:
 
-- `.html` files from `.hbs` ([handlebars][]) templates
-- `.css` stylesheets from `.less` ([less][])
+* `.html` files from `.hbs` ([handlebars](http://www.handlebarsjs.com/)) templates
+* `.css` stylesheets from `.less` ([less](http://lesscss.org))
 
 ```js
 var assemble = require('assemble');
@@ -26,5 +26,3 @@ app.task('css', function () {
 
 app.task('default', ['html', 'css']);
 ```
-
-{%= reflinks(['less', 'handlebars']) %}

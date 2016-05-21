@@ -1,12 +1,13 @@
+# Overview
 
 **Features**
 
-- create custom view collections using `app.create('foo')`
-- use any template engine to render views
-- support for helpers
-- support for partials
-- support for layouts
-- plugins and middleware
+* create custom view collections using `app.create('foo')`
+* use any template engine to render views
+* support for helpers
+* support for partials
+* support for layouts
+* plugins and middleware
 
 **Example**
 
@@ -33,6 +34,7 @@ app.pages.getView('a.html')
 <!-- toc -->
 
 ## Install
+
 {%= include("install-npm", {save: true}) %}
 
 ## Usage
