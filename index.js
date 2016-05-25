@@ -30,7 +30,7 @@ function Assemble(options) {
 }
 
 /**
- * `Assemble` prototype methods
+ * Inherit `Templates`
  */
 
 Templates.extend(Assemble);
@@ -52,14 +52,20 @@ Assemble.prototype.initAssembleCore = function() {
 };
 
 /**
- * Expose the `Assemble` constructor
+ * Expose static `is*` methods from Templates
  */
 
-module.exports = Assemble;
+Templates._.plugin.is(Assemble);
 
 /**
  * Expose static properties for unit tests
  */
 
-Assemble.utils = Templates.utils;
-Assemble._ = Templates._;
+utils.define(Assemble, 'utils', Templates.utils);
+utils.define(Assemble, '_', Templates._);
+
+/**
+ * Expose the `Assemble` constructor
+ */
+
+module.exports = Assemble;
