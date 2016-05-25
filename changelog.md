@@ -1,3 +1,8 @@
+**v0.19.0**
+
+- Bumps [templates][] to v0.19.0
+- Externalizes tests (temporarily) to base-test-runner, until we get all of the tests streamlined to the same format.
+
 **v0.18.0**
 
 - Bumps [assemble-loader][] to v0.5.0, which includes which fixes a bug where `renameKey` was not always being used when defined on collection loader options.
