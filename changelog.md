@@ -1,3 +1,7 @@
+**v0.20.0**
+
+- Bumps [templates][] to v0.20.0. Some changes were made to context handling that effected one unit test out of ~1,000. although it's unlikely you'll be effected by the change, it warrants a minor bump
+
 **v0.19.0**
 
 - Bumps [templates][] to v0.19.0
