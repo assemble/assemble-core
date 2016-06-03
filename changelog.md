@@ -1,3 +1,7 @@
+**v0.21.0**
+
+- Bumps [templates][] to v0.21.0. Support for the `queue` property was removed on collections. See [templates][] for additional details.
+
 **v0.20.0**
 
 - Bumps [templates][] to v0.20.0. Some changes were made to context handling that effected one unit test out of ~1,000. although it's unlikely you'll be effected by the change, it warrants a minor bump
