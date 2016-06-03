@@ -25,17 +25,17 @@
     "test": "mocha"
   },
   "dependencies": {
-    "assemble-fs": "^0.5.1",
+    "assemble-fs": "^0.5.2",
     "assemble-render-file": "^0.7.0",
     "assemble-streams": "^0.6.0",
-    "base-task": "^0.5.0",
+    "base-task": "^0.6.1",
     "define-property": "^0.2.5",
     "lazy-cache": "^2.0.1",
-    "templates": "^0.20.1"
+    "templates": "^0.21.0"
   },
   "devDependencies": {
     "base-test-runner": "^0.2.0",
-    "base-test-suite": "^0.1.6",
+    "base-test-suite": "^0.1.9",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
     "gulp-format-md": "^0.1.9",
