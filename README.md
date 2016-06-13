@@ -2,14 +2,22 @@
 
 > The core assemble application with no presets or defaults. All configuration is left to the implementor.
 
-assemble-core was designed to give implementors and hackers the baseline features and API for creating rich and powerful node.js applications. You can create web applications, project generators, or even your own static site generator using assemble-core. Learn more about [what you can do with assemble-core](#faq).
+<p align="center">
+<a href="https://github.com/assemble/assemble-core">
+<img height="250" width="250" src="https://raw.githubusercontent.com/assemble/assemble-core/master/docs/logo.png">
+</a>
+</p>
+
+Built on top of [base](https://github.com/node-base/base) and [templates](https://github.com/jonschlinkert/templates), assemble-core is used in [assemble](https://github.com/assemble/assemble) to provide the baseline features and API necessary for rendering templates, working with the file system, and running tasks.
+
+Implementors and hackers can use assemble-core to create rich and powerful build tooling, project scaffolding systems, documentation generators, or even your completely custom static site generators. Learn more about [what you can do with assemble-core](#faq).
 
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm install assemble-core --save
+$ npm install --save assemble-core
 ```
 
 ## Usage
@@ -82,11 +90,164 @@ var assemble = require('assemble');
 var app = assemble();
 ```
 
-### Templates API
+### Common
 
-Assemble has an extensive API for working with templates and template collections. In fact, the entire API from the [templates](https://github.com/jonschlinkert/templates) library is available on Assemble.
+This section describes API features that are shared by all Assemble-Core classes.
 
-While we work on getting the assemble docs updated with these methods you can visit [the templates library](https://github.com/jonschlinkert/templates) to learn more about the full range of features and options.
+#### .option
+
+Set or get an option value.
+
+**Params**
+
+* `key` **{String|Object}**: Pass a key-value pair or an object to set.
+* `val` **{any}**: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.
+* `returns` **{Object}**: Returns the instance for chaining.
+
+**Example**
+
+```js
+app.option('a', 'b');
+app.option({c: 'd'});
+console.log(app.options);
+//=> {a: 'b', c: 'd'}
+```
+
+#### .use
+
+Run a plugin on the given instance. Plugins are invoked immediately upon instantiating in the order in which they were defined.
+
+**Example**
+
+The simplest plugin looks something like the following:
+
+```js
+app.use(function(inst) {
+  // do something to `inst`
+});
+```
+
+Note that `inst` is the instance of the class you're instantiating. So if you create an instance of `Collection`, inst is the collection instance.
+
+**Params**
+
+* `fn` **{Function}**: Plugin function. If the plugin returns a function it will be passed to the `use` method of each item created on the instance.
+* `returns` **{Object}**: Returns the instance for chaining.
+
+**Usage**
+
+```js
+collection.use(function(items) {
+  // `items` is the instance, as is `this`
+
+  // optionally return a function to be passed to
+  // the `.use` method of each item created on the
+  // instance
+  return function(item) {
+    // do stuff to each `item`
+  };
+});
+```
+
+### App
+
+The `Templates` class is the main export of the `templates` library. All of the other classes are exposed as static properties on `Templates`:
+
+* [Item](#Item): Collection item, powered by [vinyl-item](https://github.com/jonschlinkert/vinyl-item).
+* [View](#View): Collection item, powered by [vinyl-view](https://github.com/jonschlinkert/vinyl-view).
+* [List](#List)
+* [Views](#Views):
+* [Collection](#Collection): Base collections class. Use this if you need to customize the render cycle, middleware stages, and so on.
+* [Group](#Group)
+
+### [Assemble](index.js#L22)
+
+Create an `assemble` application. This is the main function exported by the assemble module.
+
+**Params**
+
+* `options` **{Object}**: Optionally pass default options to use.
+
+**Example**
+
+```js
+var assemble = require('assemble');
+var app = assemble();
+```
+
+***
+
+### Engines
+
+***
+
+### Built-in helpers
+
+***
+
+### View
+
+API for the `View` class.
+
+#### View Data
+
+***
+
+### Item
+
+API for the `Item` class.
+
+#### Item Data
+
+***
+
+### Views
+
+API for the `Views` class.
+
+#### Views Data
+
+***
+
+#### Lookup methods
+
+***
+
+### Collections
+
+API for the `Collections` class.
+
+***
+
+### List
+
+API for the `List` class.
+
+***
+
+### Group
+
+API for the `Group` class.
+
+***
+
+### Lookups
+
+***
+
+### Rendering
+
+***
+
+### Context
+
+***
+
+### Routes and middleware
+
+***
+
+### is
 
 ***
 
@@ -253,13 +414,13 @@ You can use assemble-core to create your own custom:
 
 Assemble is built on top of these great projects:
 
-* [assemble](https://www.npmjs.com/package/assemble): Assemble is a powerful, extendable and easy to use static site generator for node.js. Used… [more](https://www.npmjs.com/package/assemble) | [homepage](https://github.com/assemble/assemble)
-* [boilerplate](https://www.npmjs.com/package/boilerplate): Tools and conventions for authoring and publishing boilerplates that can be generated by any build… [more](https://www.npmjs.com/package/boilerplate) | [homepage](http://boilerplates.io)
-* [composer](https://www.npmjs.com/package/composer): API-first task runner with three methods: task, run and watch. | [homepage](https://github.com/doowb/composer)
-* [generate](https://www.npmjs.com/package/generate): Fast, composable, highly pluggable project generator with a user-friendly and expressive API. | [homepage](https://github.com/generate/generate)
-* [scaffold](https://www.npmjs.com/package/scaffold): Conventions and API for creating declarative configuration objects for project scaffolds - similar in format… [more](https://www.npmjs.com/package/scaffold) | [homepage](https://github.com/jonschlinkert/scaffold)
-* [templates](https://www.npmjs.com/package/templates): System for creating and managing template collections, and rendering templates with any node.js template engine.… [more](https://www.npmjs.com/package/templates) | [homepage](https://github.com/jonschlinkert/templates)
-* [verb](https://www.npmjs.com/package/verb): Documentation generator for GitHub projects. Verb is extremely powerful, easy to use, and is used… [more](https://www.npmjs.com/package/verb) | [homepage](https://github.com/verbose/verb)
+* [assemble](https://www.npmjs.com/package/assemble): Assemble is a powerful, extendable and easy to use static site generator for node.js. Used… [more](https://github.com/assemble/assemble) | [homepage](https://github.com/assemble/assemble "Assemble is a powerful, extendable and easy to use static site generator for node.js. Used by thousands of projects for much more than building websites, Assemble is also used for creating themes, scaffolds, boilerplates, e-books, UI components, API docum")
+* [boilerplate](https://www.npmjs.com/package/boilerplate): Tools and conventions for authoring and publishing boilerplates that can be generated by any build… [more](http://boilerplates.io) | [homepage](http://boilerplates.io "Tools and conventions for authoring and publishing boilerplates that can be generated by any build system or generator.")
+* [composer](https://www.npmjs.com/package/composer): API-first task runner with three methods: task, run and watch. | [homepage](https://github.com/doowb/composer "API-first task runner with three methods: task, run and watch.")
+* [generate](https://www.npmjs.com/package/generate): Fast, composable, highly pluggable project generator with a user-friendly and expressive API. | [homepage](https://github.com/generate/generate "Fast, composable, highly pluggable project generator with a user-friendly and expressive API.")
+* [scaffold](https://www.npmjs.com/package/scaffold): Conventions and API for creating declarative configuration objects for project scaffolds - similar in format… [more](https://github.com/jonschlinkert/scaffold) | [homepage](https://github.com/jonschlinkert/scaffold "Conventions and API for creating declarative configuration objects for project scaffolds - similar in format to a grunt task, but more portable, generic and can be used by any build system or generator - even gulp.")
+* [templates](https://www.npmjs.com/package/templates): System for creating and managing template collections, and rendering templates with any node.js template engine… [more](https://github.com/jonschlinkert/templates) | [homepage](https://github.com/jonschlinkert/templates "System for creating and managing template collections, and rendering templates with any node.js template engine. Can be used as the basis for creating a static site generator or blog framework.")
+* [verb](https://www.npmjs.com/package/verb): Documentation generator for GitHub projects. Verb is extremely powerful, easy to use, and is used… [more](https://github.com/verbose/verb) | [homepage](https://github.com/verbose/verb "Documentation generator for GitHub projects. Verb is extremely powerful, easy to use, and is used on hundreds of projects of all sizes to generate everything from API docs to readmes.")
 
 ## Tests
 
@@ -273,11 +434,15 @@ $ npm install -d && npm test
 
 ## Contributing
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/assemble/assemble-core/issues/new).
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
 
 If Assemble doesn't do what you need, [please let us know][issue].
 
 ## History
+
+**v0.22.0**
+
+* Bumps [templates](https://github.com/jonschlinkert/templates) to v0.22.0 to take advantage of improvements to lookup methods: `.find` and `getView`. No API changes were made. Please [let us know](../../issues) if regressions occur.
 
 **v0.21.0**
 
@@ -366,4 +531,4 @@ Released under the [MIT license](https://github.com/assemble/assemble-core/blob/
 
 ***
 
-_This file was generated by [verb](https://github.com/verbose/verb), v0.9.0, on June 03, 2016._
+_This file was generated by [verb](https://github.com/verbose/verb), v0.9.0, on June 12, 2016._
