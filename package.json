@@ -31,7 +31,7 @@
     "base-task": "^0.6.1",
     "define-property": "^0.2.5",
     "lazy-cache": "^2.0.1",
-    "templates": "^0.21.0"
+    "templates": "^0.22.0"
   },
   "devDependencies": {
     "base-test-runner": "^0.2.0",
@@ -39,11 +39,8 @@
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
     "gulp-format-md": "^0.1.9",
-    "gulp-git": "^1.7.2",
-    "gulp-istanbul": "^0.10.4",
-    "gulp-mocha": "^2.2.0",
-    "minimist": "^1.2.0",
-    "rimraf": "^2.5.2"
+    "gulp-istanbul": "^1.0.0",
+    "gulp-mocha": "^2.2.0"
   },
   "keywords": [
     "api",
@@ -117,6 +114,7 @@
       "assemble-loader",
       "assemble-render-file",
       "assemble-streams",
+      "base",
       "base-logger",
       "base-methods",
       "base-tasks",
@@ -134,7 +132,10 @@
       "scaffold",
       "templates",
       "verb",
-      "vinyl-fs"
+      "vinyl-fs",
+      "vinyl-item",
+      "vinyl-view",
+      "vinyl"
     ],
     "lint": {
       "reflinks": true

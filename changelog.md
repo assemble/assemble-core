@@ -1,3 +1,7 @@
+**v0.22.0**
+
+- Bumps [templates][] to v0.22.0 to take advantage of improvements to lookup methods: `.find` and `getView`. No API changes were made. Please [let us know](../../issues) if regressions occur.
+
 **v0.21.0**
 
 - Bumps [templates][] to v0.21.0. Support for the `queue` property was removed on collections. See [templates][] for additional details.
