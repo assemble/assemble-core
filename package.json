@@ -138,7 +138,8 @@
       "vinyl",
       "vinyl-fs",
       "vinyl-item",
-      "vinyl-view"
+      "vinyl-view",
+      "engine-cache"
     ],
     "lint": {
       "reflinks": true
