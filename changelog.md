@@ -1,3 +1,7 @@
+### v0.23.0
+
+Bumps [templates][] to v0.23.0 to fix bug with double rendering in [engine-cache][].
+
 ### v0.22.0
 
 Bumps [templates][] to v0.22.0 to take advantage of fixes and improvements to lookup methods: `.find` and `getView`. No API changes were made. Please [let us know](../../issues) if regressions occur.
