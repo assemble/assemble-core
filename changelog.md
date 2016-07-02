@@ -1,6 +1,10 @@
+### v0.24.0
+
+- Bumps [templates][] to v0.24.0 to use the latest [base-data][] which removed the `renameKey` option from the `.data` method. Use the `namespace` option instead.
+
 ### v0.23.0
 
-Bumps [templates][] to v0.23.0 to fix bug with double rendering in [engine-cache][].
+- Bumps [templates][] to v0.23.0 to fix bug with double rendering in [engine-cache][].
 
 ### v0.22.0
 
