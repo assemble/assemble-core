@@ -10,7 +10,22 @@
 
 Built on top of [base](https://github.com/node-base/base) and [templates](https://github.com/jonschlinkert/templates), assemble-core is used in [assemble](https://github.com/assemble/assemble) to provide the baseline features and API necessary for rendering templates, working with the file system, and running tasks.
 
-Implementors and hackers can use assemble-core to create rich and powerful build tooling, project scaffolding systems, documentation generators, or even your completely custom static site generators. Learn more about [what you can do with assemble-core](#faq).
+Implementors and hackers can use assemble-core to create rich and powerful build tooling, project scaffolding systems, documentation generators, or even your completely custom static site generators.
+
+## What can I do with assemble-core?
+
+Create your own:
+
+* blog engine
+* project generator / scaffolder
+* e-book development framework
+* build system
+* landing page generator
+* documentation generator
+* front-end UI framework
+* rapid prototyping framework
+* static site generator
+* web application
 
 ## Install
 
@@ -227,21 +242,6 @@ app.task('watch', function() {
 
 ## FAQ
 
-**What can I do with assemble-core?**
-
-You can use assemble-core to create your own custom:
-
-* blog engine
-* project generator / scaffolder
-* e-book development framework
-* build system
-* landing page generator
-* documentation generator
-* front-end UI framework
-* rapid prototyping application
-* static site generator
-* web application
-
 **How does assemble-core differ from [assemble](https://github.com/assemble/assemble)?**
 
 | **feature** | **assemble-core** | **assemble** | **notes** | 
@@ -253,7 +253,7 @@ You can use assemble-core to create your own custom:
 
 ## Toolkit suite
 
-assemble-core is a standalone application that was created using applications from the [toolkit suite](https://github.com/node-toolkit/getting-started):
+assemble-core is a standalone application that was created using applications and plugins from the [toolkit suite](https://github.com/node-toolkit/getting-started):
 
 **Building blocks**
 
