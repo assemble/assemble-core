@@ -23,10 +23,9 @@ function Assemble(options) {
   if (!(this instanceof Assemble)) {
     return new Assemble(options);
   }
-
   Templates.call(this, options);
   this.is('assemble');
-  this.initAssembleCore();
+  this.initCore();
 }
 
 /**
@@ -40,29 +39,30 @@ Templates.bubble(Assemble);
  * Load core plugins
  */
 
-Assemble.prototype.initAssembleCore = function() {
-  Assemble.emit('preInit', this);
-
-  this.use(utils.tasks(this.name));
-  this.use(utils.streams());
-  this.use(utils.render());
-  this.use(utils.fs());
-
-  Assemble.emit('init', this);
+Assemble.prototype.initCore = function() {
+  Assemble.initCore(this);
 };
 
 /**
- * Expose static `is*` methods from Templates
+ * Load core plugins
  */
 
-Templates._.plugin.is(Assemble);
+Assemble.initCore = function(app) {
+  Assemble.emit('preInit', app);
+  Assemble.initPlugins(app);
+  Assemble.emit('init', app);
+};
 
 /**
- * Expose static properties for unit tests
+ * Load core plugins
  */
 
-utils.define(Assemble, 'utils', Templates.utils);
-utils.define(Assemble, '_', Templates._);
+Assemble.initPlugins = function(app) {
+  app.use(utils.tasks(app.name));
+  app.use(utils.streams());
+  app.use(utils.render());
+  app.use(utils.fs());
+};
 
 /**
  * Expose the `Assemble` constructor
