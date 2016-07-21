@@ -43,6 +43,7 @@
     "gulp-format-md": "^0.1.9",
     "gulp-istanbul": "^1.0.0",
     "gulp-mocha": "^2.2.0",
+    "helper-changelog": "^0.3.0",
     "verb-readme-generator": "^0.1.17"
   },
   "keywords": [
@@ -145,11 +146,13 @@
     "yeoman"
   ],
   "verb": {
-    "run": true,
-    "toc": false,
+    "toc": true,
     "layout": false,
     "tasks": [
       "readme"
+    ],
+    "helpers": [
+      "helper-changelog"
     ],
     "plugins": [
       "gulp-format-md"
@@ -167,7 +170,6 @@
     },
     "reflinks": [
       "assemble",
-      "assemble-cli",
       "assemble-fs",
       "assemble-loader",
       "assemble-render-file",
@@ -177,26 +179,20 @@
       "base-logger",
       "base-methods",
       "base-task",
-      "base-tasks",
       "base-watch",
-      "boilerplate",
       "composer",
       "consolidate",
       "emitter-only",
       "engine-cache",
       "engine-handlebars",
-      "generate",
       "gulp",
-      "handlebars",
-      "lazy-cache",
+      "keep-a-changelog",
       "parser-front-matter",
-      "scaffold",
       "templates",
-      "verb",
       "vinyl",
       "vinyl-fs",
-      "vinyl-item",
-      "vinyl-view"
+      "helper-changelog",
+      "verb"
     ],
     "lint": {
       "reflinks": true
