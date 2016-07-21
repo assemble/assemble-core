@@ -27,17 +27,17 @@
     "test": "mocha"
   },
   "dependencies": {
-    "assemble-fs": "^0.6.0",
-    "assemble-render-file": "^0.7.1",
+    "assemble-fs": "^0.7.0",
+    "assemble-render-file": "^0.7.2",
     "assemble-streams": "^0.6.0",
     "base-task": "^0.6.1",
     "define-property": "^0.2.5",
     "lazy-cache": "^2.0.1",
-    "templates": "^0.24.0"
+    "templates": "^0.24.2"
   },
   "devDependencies": {
     "base-test-runner": "^0.2.0",
-    "base-test-suite": "^0.1.12",
+    "base-test-suite": "^0.2.3",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-format-md": "^0.1.9",
@@ -176,6 +176,7 @@
       "base-data",
       "base-logger",
       "base-methods",
+      "base-task",
       "base-tasks",
       "base-watch",
       "boilerplate",
@@ -195,8 +196,7 @@
       "vinyl",
       "vinyl-fs",
       "vinyl-item",
-      "vinyl-view",
-      "base-task"
+      "vinyl-view"
     ],
     "lint": {
       "reflinks": true
