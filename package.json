@@ -43,8 +43,7 @@
     "gulp-format-md": "^0.1.9",
     "gulp-istanbul": "^1.0.0",
     "gulp-mocha": "^2.2.0",
-    "helper-changelog": "^0.3.0",
-    "verb-readme-generator": "^0.1.17"
+    "helper-changelog": "^0.3.0"
   },
   "keywords": [
     "add",
@@ -186,13 +185,13 @@
       "engine-cache",
       "engine-handlebars",
       "gulp",
+      "helper-changelog",
       "keep-a-changelog",
       "parser-front-matter",
       "templates",
+      "verb",
       "vinyl",
-      "vinyl-fs",
-      "helper-changelog",
-      "verb"
+      "vinyl-fs"
     ],
     "lint": {
       "reflinks": true
