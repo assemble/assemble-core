@@ -19,11 +19,12 @@ Custom labels used in this changelog:
 
 Please [let us know](../../issues) if any of the following heading links are broken. Thanks!
 
-## [0.26.0] - 2016-07-21
+## [0.26.0] - 2016-08-06
 
 **dependencies**
 
-- Bumps [assemble-fs][] to v0.7.0
+- Bumps [assemble-fs][] to v0.7.0 to take advantage of `handle.once`
+- Bumps [templates][] to v0.25.0 to take advantage of async collection loaders. No changes to existing API.
 
 ## [0.25.0] - 2016-07-05
 
