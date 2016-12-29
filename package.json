@@ -15,8 +15,6 @@
   "license": "MIT",
   "files": [
     "index.js",
-    "LICENSE",
-    "README.md",
     "utils.js"
   ],
   "main": "index.js",
@@ -30,19 +28,19 @@
     "assemble-fs": "^0.7.0",
     "assemble-render-file": "^0.7.2",
     "assemble-streams": "^0.7.0",
-    "base-task": "^0.6.1",
+    "base-task": "^0.7.0",
     "define-property": "^0.2.5",
-    "lazy-cache": "^2.0.1",
-    "templates": "^0.25.0"
+    "lazy-cache": "^2.0.2",
+    "templates": "^1.0.0"
   },
   "devDependencies": {
     "base-test-runner": "^0.2.0",
-    "base-test-suite": "^0.2.3",
+    "base-test-suite": "^0.3.0",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
-    "gulp-format-md": "^0.1.9",
-    "gulp-istanbul": "^1.0.0",
-    "gulp-mocha": "^2.2.0",
+    "gulp-format-md": "^0.1.11",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-mocha": "^3.0.1",
     "helper-changelog": "^0.3.0"
   },
   "keywords": [
@@ -169,6 +167,7 @@
     },
     "reflinks": [
       "assemble",
+      "assemble-cli",
       "assemble-fs",
       "assemble-loader",
       "assemble-render-file",
@@ -186,10 +185,8 @@
       "engine-handlebars",
       "gulp",
       "helper-changelog",
-      "keep-a-changelog",
       "parser-front-matter",
       "templates",
-      "verb",
       "vinyl",
       "vinyl-fs"
     ],
