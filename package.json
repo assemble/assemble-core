@@ -25,7 +25,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "assemble-fs": "^0.7.0",
+    "assemble-fs": "^0.8.0",
     "assemble-render-file": "^0.7.2",
     "assemble-streams": "^0.7.0",
     "base-task": "^0.7.0",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "base-test-runner": "^0.2.0",
-    "base-test-suite": "^0.3.0",
+    "base-test-suite": "^0.3.1",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-format-md": "^0.1.11",
