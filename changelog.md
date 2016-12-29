@@ -19,6 +19,13 @@ Custom labels used in this changelog:
 
 Please [let us know](../../issues) if any of the following heading links are broken. Thanks!
 
+## [0.27.0] - 2016-12-27
+
+**dependencies**
+
+- Bumps [templates] to v1.0.0 to take advantage of new template inheritance features!
+- Bumps [assemble-fs] to v0.8.0 
+
 ## [0.26.0] - 2016-08-06
 
 **dependencies**
