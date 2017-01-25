@@ -31,11 +31,11 @@
     "base-task": "^0.7.0",
     "define-property": "^0.2.5",
     "lazy-cache": "^2.0.2",
-    "templates": "^1.0.0"
+    "templates": "^1.1.1"
   },
   "devDependencies": {
     "base-test-runner": "^0.2.0",
-    "base-test-suite": "^0.3.1",
+    "base-test-suite": "^0.3.2",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-format-md": "^0.1.11",
