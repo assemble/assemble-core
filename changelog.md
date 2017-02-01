@@ -19,6 +19,12 @@ Custom labels used in this changelog:
 
 Please [let us know](../../issues) if any of the following heading links are broken. Thanks!
 
+## [0.28.0] - 2017-02-01
+
+**dependencies**
+
+- Bumps [templates] to v1.2.0 to take advantage of new methods available on `list`s
+
 ## [0.27.0] - 2016-12-27
 
 **dependencies**
