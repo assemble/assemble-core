@@ -344,6 +344,12 @@ Custom labels used in this changelog:
 
 Please [let us know](../../issues) if any of the following heading links are broken. Thanks!
 
+#### [0.29.0](https://github.com/assemble/assemble-core/compare/0.28.0...0.29.0) - 2017-02-01
+
+**dependencies**
+
+* Bumps [assemble-fs](https://github.com/assemble/assemble-fs) to v0.9.0 to take advantage of improvements to `.dest()` handling.
+
 #### [0.28.0](https://github.com/assemble/assemble-core/compare/0.27.0...0.28.0) - 2017-02-01
 
 **dependencies**
