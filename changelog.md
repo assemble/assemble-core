@@ -19,6 +19,12 @@ Custom labels used in this changelog:
 
 Please [let us know](../../issues) if any of the following heading links are broken. Thanks!
 
+## [0.30.0] - 2017-08-01
+
+**dependencies**
+
+- Bumps [assemble-fs][] and [assemble-render-file][] to get updates that merge the dest path information onto the context so that it can be used to calculate relative paths for navigation, pagination, etc.
+
 ## [0.29.0] - 2017-02-01
 
 **dependencies**
