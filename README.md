@@ -360,7 +360,7 @@ Custom labels used in this changelog:
 
 Please [let us know](../../issues) if any of the following heading links are broken. Thanks!
 
-#### [0.31.0](https://github.com/assemble/assemble-core/compare/0.30.0...0.31.0) - 2017-11-2011
+#### [0.31.0](https://github.com/assemble/assemble-core/compare/0.30.0...0.31.0) - 2017-02-11
 
 **dependencies**
 
