@@ -19,6 +19,12 @@ Custom labels used in this changelog:
 
 Please [let us know](../../issues) if any of the following heading links are broken. Thanks!
 
+## [0.31.0] - 2017-11-2011
+
+**dependencies**
+
+- Bumps [assemble-streams][] to ensure that `view` is decorated with `.toStream()` when created by app (instead of a collection). This is arguably a bugfix, but it might break someone's code.
+
 ## [0.30.0] - 2017-08-01
 
 **dependencies**
